@@ -21,6 +21,7 @@
     body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-1); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.7; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
     .hr { width: 100%; height: 1px; background: var(--border); }
+
     /* HEADER */
     header { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: border-color var(--t) var(--ease); }
     header.on { border-bottom-color: var(--border); }
@@ -41,6 +42,7 @@
       nav a { padding: 14px 28px; font-size: 15px; }
       nav a:hover { background: var(--bg-soft); }
     }
+
     /* HERO */
     .hero { padding: 96px 0 80px; position: relative; overflow: hidden; background-image: radial-gradient(circle, rgba(26,31,46,0.10) 1.5px, transparent 1px); background-size: 28px 28px; background-position: 14px 14px; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 24px; }
@@ -52,6 +54,7 @@
     .hero-tagline p { font-size: clamp(15px, 1.8vw, 17px); color: var(--text-1); line-height: 1.85; }
     .hero-tagline strong { font-weight: 600; }
     .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
     /* BUTTONS */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 14px; font-weight: 600; border-radius: var(--r-sm); text-decoration: none; letter-spacing: -0.01em; transition: all var(--t) var(--ease); }
     .btn svg { flex-shrink: 0; }
@@ -59,11 +62,13 @@
     .btn-dark:hover { background: var(--charcoal-2); border-color: var(--charcoal-2); transform: translateY(-1px); box-shadow: var(--sh-md); }
     .btn-outline { background: transparent; color: var(--charcoal); border: 1.5px solid var(--border); }
     .btn-outline:hover { border-color: var(--charcoal); background: var(--bg-card); transform: translateY(-1px); }
+
     /* SECTION */
     .sec { padding: 76px 0; }
     .sec-alt { background: var(--bg-soft); }
     .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
     .sec-title { font-size: clamp(22px, 3vw, 28px); font-weight: 700; letter-spacing: -0.025em; color: var(--charcoal); line-height: 1.3; margin-bottom: 40px; }
+
     /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
     .about-text { font-size: 16px; color: var(--text-2); line-height: 1.9; }
@@ -78,6 +83,7 @@
     .sidebar-icon.accent { background: var(--charcoal); }
     .sidebar-card-label { font-size: 13px; font-weight: 700; color: var(--text-1); }
     .sidebar-card-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
     /* METRICS */
     .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
     .m-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 28px 18px; text-align: center; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
@@ -85,6 +91,7 @@
     .m-number { display: inline-block; font-size: 28px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 8px; background: var(--charcoal-a); padding: 4px 14px; border-radius: 8px; }
     .m-label { font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 6px; }
     .m-sub { font-size: 11px; color: var(--text-3); line-height: 1.5; }
+
     /* CASES */
     .cases-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .c-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 30px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
@@ -100,6 +107,7 @@
     .c-metric-lab { font-size: 11px; color: var(--text-3); }
     .c-arrow { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--charcoal); flex-shrink: 0; transition: background var(--t), border-color var(--t), transform var(--t); }
     .c-card:hover .c-arrow { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); transform: translateX(3px); }
+
     /* MODAL */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 500; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
     .modal-overlay.open { display: flex; }
@@ -119,6 +127,7 @@
     .modal-result-num { font-size: 26px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; white-space: nowrap; }
     .modal-result-desc { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
     @media (max-width: 600px) { .modal-head { padding: 24px 20px 20px; } .modal-body { padding: 20px 20px 28px; } .modal-title { font-size: 17px; } }
+
     /* JD MATCH */
     .jd-grid { display: flex; flex-direction: column; gap: 16px; }
     .jd-item { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
@@ -135,6 +144,7 @@
     .jd-match-point { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-2); line-height: 1.6; }
     .jd-match-point::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; margin-top: 8px; }
     @media (max-width: 680px) { .jd-item { grid-template-columns: 1fr; } }
+
     /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
     .sk-group { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px 24px; }
@@ -142,17 +152,20 @@
     .sk-list { display: flex; flex-direction: column; gap: 9px; }
     .sk-item { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-2); }
     .sk-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; }
+
     /* FOOTER */
     footer { padding: 60px 0; border-top: 1px solid var(--border); }
     .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
     .footer-name { font-size: 22px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; margin-bottom: 4px; }
     .footer-sub { font-size: 14px; color: var(--text-3); }
+
     /* FADE IN */
     .fi { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
     .fi.show { opacity: 1; transform: none; }
     .fi:nth-child(2) { transition-delay: 0.08s; }
     .fi:nth-child(3) { transition-delay: 0.16s; }
     .fi:nth-child(4) { transition-delay: 0.24s; }
+
     @media (max-width: 800px) {
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .metrics-grid { grid-template-columns: repeat(2,1fr); }
@@ -563,25 +576,21 @@
     <div class="modal-body">
       <div class="modal-section">
         <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">골프장 400여 곳은 취소 정책·위약금 기준·동반자 제한 규정이 제각각이었습니다. 파트너사 어드민(카카오파트너스)에 데이터가 있었지만 기준화가 안 돼 <strong>팀원마다 다르게 안내</strong>하는 상황이었고, 동일 유형 파트너 문의가 반복 유입되며 오안내로 인한 컴플레인이 지속됐습니다.</div>
+        <div class="modal-section-text">배송 가능일이 다른 상품이 장바구니에 함께 담기면 주문이 차단됐지만, 고객에게는 이유가 전혀 안내되지 않아 일 6~10건의 동일한 문의가 반복됐습니다. 3개월간 누적된 프로모션 오인 VOC 173건을 직접 전수 분류한 결과, <strong>82%가 동일한 구조적 원인</strong>에서 발생하고 있었습니다. 반복 문의는 고객 문제가 아니라 서비스 구조의 문제였습니다.</div>
       </div>
       <div class="modal-section">
-        <div class="modal-section-label">실행</div>
-        <div class="modal-section-text">400여 곳 골프장 정책을 중요도순으로 직접 재구조화하고, 파트너사별 이슈를 유형화·분류해 어드민에서 직접 수정 처리하는 체계를 갖췄습니다. VOC 분석으로 <strong>정책 혼선이 반복되는 구간을 식별</strong>하고, 파트너가 자체적으로 판단할 수 있는 운영 가이드를 전면 재정비해 팀 전체에 배포했습니다. 골프장 정책 변경 수신 시 어드민 즉시 반영 프로세스를 정착시켜 팀 전체가 항상 최신 기준으로 응대할 수 있는 체계를 유지했습니다.</div>
+        <div class="modal-section-label">실행 A — Fail-soft UX 설계</div>
+        <div class="modal-section-text">기술 제약으로 모든 예외 처리가 어렵다는 개발팀 답변 후, API 응답값으로 판단 가능한 조건만으로 최소 실행 단위(MVP)를 재설계했습니다. <strong>고객이 주문 불가 이유를 이해하고 흐름을 이어갈 수 있는</strong> Fail-soft UX를 직접 기획해 데이터 자료와 함께 CTO에게 재제안 → 즉시 수용 → 당일 구현됐습니다. 이 subtext 구조는 이후 프로모션 안내까지 사내 표준으로 확산됐습니다.</div>
       </div>
       <div class="modal-section">
-        <div class="modal-section-label">결과</div>
-        <div class="modal-section-text">동일 유형 파트너 문의 반복률이 감소하고, 어드민 데이터 기준 정의로 <strong>데이터 정합성이 개선되어 정산 오류 방지</strong>에도 기여했습니다. 상담 판단 체계 수립으로 신입 온보딩 시간이 단축되고, 오안내·파트너 컴플레인이 감소했습니다.</div>
+        <div class="modal-section-label">실행 B — 입력 구조·운영 기준 재설계</div>
+        <div class="modal-section-text">환불·교환 의도를 자유 텍스트로만 수집하던 구조를 발견, <strong>고객 의도를 수집 단계에서 필수 선택값으로 구조화</strong>하는 스펙을 설계해 개발팀과 협의·구현했습니다. VOC 173건 분류 결과를 데이터로 정리해 이커머스 리드와 협의, 행동 시점 검증 로직 및 운영 기준을 수립했습니다.</div>
       </div>
       <div class="modal-result">
-        <div class="modal-result-num">400+ 파트너</div>
-        <div class="modal-result-desc">운영 기준 표준화 · 반복 문의율 감소 · 어드민 데이터 정합성 개선 · 온보딩 시간 단축.</div>
+        <div class="modal-result-num">일 6~10건 → 0건</div>
+        <div class="modal-result-desc">배송 오류 문의 완전 해소 · AS 재확인 왕복 <strong style="color:white;">95%+ 감소</strong> · VOC 82% 동일 원인 규명 후 운영 기준 수립</div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Modal 3: 도메인 지식 번역 -->>
   </div>
 </div>
 
@@ -604,35 +613,35 @@
     <div class="modal-body">
       <div class="modal-section">
         <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">카카오VX 플랫폼에서 고객의 예약 변경·취소 요청은 <strong>전건 위약 처리</strong>가 필요한 건들이었습니다. 골프장마다 위약 정책이 달랐고, 파트너 400여 곳의 운영 기준이 통일되지 않아 반복 문의와 이견 중재가 지속됐습니다.</div>
+        <div class="modal-section-text">골프장 400여 곳은 취소 정책·위약금 기준·동반자 제한 규정이 제각각이었습니다. 파트너사 어드민(카카오파트너스)에 데이터가 있었지만 기준화가 안 돼 <strong>팀원마다 다르게 안내</strong>하는 상황이었고, 동일 유형 파트너 문의가 반복 유입되며 오안내로 인한 컴플레인이 지속됐습니다.</div>
       </div>
       <div class="modal-section">
         <div class="modal-section-label">실행</div>
-        <div class="modal-section-text">고객 요청을 플랫폼 어드민에서 접수·확인하고, 골프장별 위약 정책을 검토한 후 <strong>골프장에 전화·카톡으로 직접 연락해 처리를 조율</strong>했습니다. 고객 요청과 파트너 정책 사이 이견을 중재하는 단독 소통 창구 역할이었습니다. 동시에 파트너별로 달랐던 판단 기준을 통일하고 반복 문의 패턴을 분류해 Knowledge Base를 구축했습니다.</div>
+        <div class="modal-section-text">400여 곳 골프장 정책을 중요도순으로 직접 재구조화하고, 파트너사별 이슈를 유형화·분류해 어드민에서 직접 수정 처리하는 체계를 갖췄습니다. VOC 분석으로 <strong>정책 혼선이 반복되는 구간을 식별</strong>하고, 파트너가 자체적으로 판단할 수 있는 운영 가이드를 전면 재정비해 팀 전체에 배포했습니다. 골프장 정책 변경 수신 시 어드민 즉시 반영 프로세스를 정착시켜 팀 전체가 항상 최신 기준으로 응대할 수 있는 체계를 유지했습니다.</div>
       </div>
       <div class="modal-section">
         <div class="modal-section-label">결과</div>
-        <div class="modal-section-text">파트너 운영 가이드를 전면 재정비해 <strong>B2B 파트너가 스스로 해결할 수 있는 구조</strong>를 만들었습니다. 반복 문의율이 감소했고, 파트너 400여 곳 전체에 통일된 운영 기준이 안착됐습니다.</div>
+        <div class="modal-section-text">동일 유형 파트너 문의 반복률이 감소하고, 어드민 데이터 기준 정의로 <strong>데이터 정합성이 개선되어 정산 오류 방지</strong>에도 기여했습니다. 상담 판단 체계 수립으로 신입 온보딩 시간이 단축되고, 오안내·파트너 컴플레인이 감소했습니다.</div>
       </div>
       <div class="modal-result">
         <div class="modal-result-num">400+ 파트너</div>
-        <div class="modal-result-desc">운영 기준 표준화 완료. Knowledge Base 구축으로 파트너 자기해결률 향상, 반복 문의 구조적 감소.</div>
+        <div class="modal-result-desc">운영 기준 표준화 · 반복 문의율 감소 · 어드민 데이터 정합성 개선 · 온보딩 시간 단축.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal 3: 도메인 지식 번역 -->
+<!-- Modal 3: 계약 분석 -->
 <div class="modal-overlay" id="modal3">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-head">
       <div>
         <div class="modal-tags">
-          <span class="c-tag accent">도메인 지식 번역</span>
-          <span class="c-tag">계약 분석</span>
-          <span class="c-tag">B2B 파트너 협상</span>
+          <span class="c-tag accent">계약 분석 · AI 이중 검증</span>
+          <span class="c-tag">CEO 승인 · 전사 정산 기준 확정</span>
+          <span class="c-tag">배상회수율 14.7배</span>
         </div>
-        <div class="modal-title">계약서 AI 분석 + NotebookLM 교차 검증 → 협상 근거 확보 → 배상회수율 14.7배 개선</div>
+        <div class="modal-title">외부 파트너 배상 구조 직접 해체 — 계약서 AI 이중 검증으로 선공제 조항 발굴, CEO 승인·전사 기준 확정</div>
       </div>
       <button class="modal-close" aria-label="닫기">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -641,35 +650,35 @@
     <div class="modal-body">
       <div class="modal-section">
         <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">물류 파트너와의 배상 분쟁에서 <strong>계약서에 어떤 조항이 실제로 있는지 파악하는 것 자체가 어려웠습니다.</strong> CS 판단 기준이 없는 상황에서 귀책 기준과 정산 체계를 직접 만들어야 했고, 기존 배상회수율이 극히 낮았습니다.</div>
+        <div class="modal-section-text">외부 파트너 회신에 끌려다니며 배상 손실이 통제되지 않는 구조였습니다. 택배 파손·물류 사고가 발생해도 <strong>귀책을 입증할 수단 자체가 없었고</strong>, 파트너사 관행에 따라 처리되는 것이 전부였습니다. 월 배상회수액은 50만 원 수준이었습니다.</div>
       </div>
       <div class="modal-section">
-        <div class="modal-section-label">접근 방법 — AI 이중 검증</div>
-        <div class="modal-section-text">택배 표준약관과 물류 계약서를 <strong>Claude로 계약 구조를 해석</strong>하고, <strong>NotebookLM으로 원문 근거를 교차 검증</strong>했습니다. Claude는 계약 구조를 해석하고, NotebookLM은 업로드한 문서만 참조하기 때문에 "이 조항이 실제로 있는가"를 이중으로 확인하는 체계입니다. 법률 문서에 AI 하나만 쓰지 않는 방법론입니다.</div>
+        <div class="modal-section-label">실행 A — 택배 표준약관 분석</div>
+        <div class="modal-section-text">택배 표준약관을 Claude로 계약 구조 전체를 해석하고, NotebookLM으로 원문 근거를 교차 검증했습니다. <strong>파손 통보 의무 조항</strong>을 근거로 "최소 증빙(사진·접수 기록)만 있으면 파트너에 청구 가능"하다는 기준을 수립, 기존 관행을 협상 기반 절차로 전환했습니다.</div>
       </div>
       <div class="modal-section">
-        <div class="modal-section-label">실행</div>
-        <div class="modal-section-text">계약서 안에 숨어 있던 <strong>선공제 조항을 발굴</strong>해 귀책 기준과 정산 체계를 직접 수립했습니다. 이 방법론은 근로기준법·취업규칙·급여 정산 구조 등 플렉스의 HR·노무 영역에서도 동일하게 적용 가능합니다.</div>
+        <div class="modal-section-label">실행 B — 물류 계약서 선공제 조항 발굴</div>
+        <div class="modal-section-text">물류 계약서를 같은 방식으로 분석하던 중 <strong>제6조·제10조에 선공제 권리 조항이 존재</strong>함을 발견했습니다. Claude는 계약 구조를 해석하고, NotebookLM은 업로드한 원문만 참조해 "이 조항이 실제로 있는가"를 이중 확인하는 방법론입니다. 발견 후 피해현황 통보서와 정산 기준을 직접 설계해 CEO에게 보고, 즉시 승인·공식화됐습니다.</div>
       </div>
       <div class="modal-result">
         <div class="modal-result-num">배상회수율 14.7배</div>
-        <div class="modal-result-desc">AI 계약 분석 → 협상 근거 확보 → <strong style="color:white;">월 1,900만 선공제 구조</strong> 확보. 처음 접한 도메인을 직접 파고든 결과입니다.</div>
+        <div class="modal-result-desc">월 50만 → 700만 원 · <strong style="color:white;">월 1,900만 선공제 구조 확보</strong>. 처음 접한 도메인을 AI로 직접 파고들어 CEO 승인까지 끌어낸 결과입니다.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal 4: AI 기반 자동화 -->
+<!-- Modal 4: 선제 발견 · C레벨 제안 -->
 <div class="modal-overlay" id="modal4">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-head">
       <div>
         <div class="modal-tags">
-          <span class="c-tag accent">AI 기반 CX 자동화</span>
-          <span class="c-tag">생성형 AI 직접 구현</span>
-          <span class="c-tag">운영 고도화</span>
+          <span class="c-tag accent">선제 발견 · C레벨 제안·승인</span>
+          <span class="c-tag">SLA 전사 기준 확정</span>
+          <span class="c-tag">AI 자동화 직접 구현</span>
         </div>
-        <div class="modal-title">생성형 AI로 CS 8단계→2단계 자동화 — 비개발 직군 유일 AI 비용 공식 승인</div>
+        <div class="modal-title">지시 없이 먼저 발견하고 설계해 전사 기준으로 — 배송 SLA 수립·COO 승인 + AI 자금집행 리포트·CEO 승인</div>
       </div>
       <button class="modal-close" aria-label="닫기">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -677,20 +686,20 @@
     </div>
     <div class="modal-body">
       <div class="modal-section">
-        <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">회사에 Gemini Pro 기본 환경이 있었지만, 반복 CS 프로세스는 여전히 8단계였고 각 업무별 AI 한계가 명확했습니다. <strong>아무도 추가 도입을 제안하지 않았습니다.</strong></div>
+        <div class="modal-section-label">공통 맥락 — "지시가 없었습니다"</div>
+        <div class="modal-section-text">두 사례 모두 <strong>누가 시킨 일이 아닙니다.</strong> 운영 중 문제를 먼저 발견하고, 기준을 직접 설계하고, C레벨에 제안해 승인을 끌어냈습니다. 먼저 발견하고, 만들고, 설득해 전사 기준으로 확정하는 방식입니다.</div>
       </div>
       <div class="modal-section">
-        <div class="modal-section-label">실행 — 직접 기획·설득·구현</div>
-        <div class="modal-section-text">각 업무의 AI 한계를 직접 파악하고 Claude·GPT 추가 도입 필요성을 기획해 제안했습니다. <strong>비개발 직군 유일 추가 AI 업무비를 공식 승인</strong>받았습니다. Claude로 Chrome Extension을 직접 구현해 반복 CS 프로세스를 8단계에서 2단계로 축소했습니다. 도구별 특성에 맞게 — VOC 분류(GPT) · 계약서 법적 교차 검증(Claude+NotebookLM) · 경영진 보고 자동화 — 목적에 맞게 실무 적용했습니다.</div>
+        <div class="modal-section-label">사례 A — 출고 지연 위기 · 배송 SLA 직접 설계</div>
+        <div class="modal-section-text">출고 지연이 1,000건 이상 누적된 상황에서 <strong>전사에 배송 SLA 기준이 없다는 것을 발견</strong>했습니다. 기준을 직접 설계해 COO에게 보고했고, 즉시 승인받아 전사 기준으로 확정됐습니다. CS 팀 판단이 아니라 운영 구조가 바뀐 케이스입니다.</div>
       </div>
       <div class="modal-section">
-        <div class="modal-section-label">핵심 관점</div>
-        <div class="modal-section-text"><strong>"어떤 AI를 쓸 것인가"</strong>까지 판단하는 방식입니다. AI를 도구로 쓰는 게 아니라 업무 파트너로 설계하는 접근입니다. 팀 전원 이탈 상황에서도 1,151건을 단독 처리한 것도 이 구조 덕분입니다.</div>
+        <div class="modal-section-label">사례 B — 재무팀 공백 발견 · AI 자금집행 리포트 구축</div>
+        <div class="modal-section-text">재무팀에 자금집행 현황을 실시간으로 보여주는 보고 체계가 없다는 공백을 발견했습니다. <strong>AI로 자금집행 리포트를 먼저 구축한 뒤 CEO에게 제안</strong>해 승인받았고, 이후 매일 오전 8시 30분 자동 발송 체계가 정착됐습니다. 비개발 직군 유일 AI 업무비 공식 승인도 이 흐름에서 나왔습니다.</div>
       </div>
       <div class="modal-result">
-        <div class="modal-result-num">8단계 → 2단계</div>
-        <div class="modal-result-desc">CS 자동화 · 1,151건 단독 처리 · 비개발 유일 AI 업무비 공식 승인. <strong style="color:white;">AI를 실무 파트너로 쓰는 방식</strong>의 결과입니다.</div>
+        <div class="modal-result-num">COO + CEO 승인 · 전사 기준 2건</div>
+        <div class="modal-result-desc">배송 SLA 전사 확정 · AI 리포트 매일 08:30 자동 발송 · <strong style="color:white;">비개발 유일 AI 업무비 공식 승인</strong>. 아무도 시키지 않은 일을 먼저 만들어 조직 기준으로 바꾼 결과입니다.</div>
       </div>
     </div>
   </div>
@@ -749,6 +758,7 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') overlays.forEach(o => { if (o.classList.contains('open')) closeModal(o); });
   });
+
   document.querySelectorAll('nav a, .btn[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
