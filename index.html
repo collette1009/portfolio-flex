@@ -21,6 +21,8 @@
     body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-1); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.7; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
     .hr { width: 100%; height: 1px; background: var(--border); }
+
+    /* HEADER */
     header { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: border-color var(--t) var(--ease); }
     header.on { border-bottom-color: var(--border); }
     .h-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
@@ -40,6 +42,8 @@
       nav a { padding: 14px 28px; font-size: 15px; }
       nav a:hover { background: var(--bg-soft); }
     }
+
+    /* HERO */
     .hero { padding: 96px 0 80px; position: relative; overflow: hidden; background-image: radial-gradient(circle, rgba(26,31,46,0.10) 1.5px, transparent 1px); background-size: 28px 28px; background-position: 14px 14px; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 24px; }
     .hero-eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--charcoal); }
@@ -50,16 +54,22 @@
     .hero-tagline p { font-size: clamp(15px, 1.8vw, 17px); color: var(--text-1); line-height: 1.85; }
     .hero-tagline strong { font-weight: 600; }
     .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 14px; font-weight: 600; border-radius: var(--r-sm); text-decoration: none; letter-spacing: -0.01em; transition: all var(--t) var(--ease); }
     .btn svg { flex-shrink: 0; }
     .btn-dark { background: var(--charcoal); color: var(--white); border: 1.5px solid var(--charcoal); }
     .btn-dark:hover { background: var(--charcoal-2); border-color: var(--charcoal-2); transform: translateY(-1px); box-shadow: var(--sh-md); }
     .btn-outline { background: transparent; color: var(--charcoal); border: 1.5px solid var(--border); }
     .btn-outline:hover { border-color: var(--charcoal); background: var(--bg-card); transform: translateY(-1px); }
+
+    /* SECTION */
     .sec { padding: 76px 0; }
     .sec-alt { background: var(--bg-soft); }
     .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
     .sec-title { font-size: clamp(22px, 3vw, 28px); font-weight: 700; letter-spacing: -0.025em; color: var(--charcoal); line-height: 1.3; margin-bottom: 40px; }
+
+    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
     .about-text { font-size: 16px; color: var(--text-2); line-height: 1.9; }
     .about-text strong { color: var(--text-1); font-weight: 600; }
@@ -73,12 +83,16 @@
     .sidebar-icon.accent { background: var(--charcoal); }
     .sidebar-card-label { font-size: 13px; font-weight: 700; color: var(--text-1); }
     .sidebar-card-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* METRICS */
     .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
     .m-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 28px 18px; text-align: center; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
     .m-card:hover { box-shadow: var(--sh-md); transform: translateY(-3px); border-color: var(--charcoal); }
     .m-number { display: inline-block; font-size: 28px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 8px; background: var(--charcoal-a); padding: 4px 14px; border-radius: 8px; }
     .m-label { font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 6px; }
     .m-sub { font-size: 11px; color: var(--text-3); line-height: 1.5; }
+
+    /* CASES */
     .cases-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .c-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 30px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
     .c-card:hover { box-shadow: var(--sh-md); transform: translateY(-3px); border-color: var(--charcoal); }
@@ -93,6 +107,8 @@
     .c-metric-lab { font-size: 11px; color: var(--text-3); }
     .c-arrow { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--charcoal); flex-shrink: 0; transition: background var(--t), border-color var(--t), transform var(--t); }
     .c-card:hover .c-arrow { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); transform: translateX(3px); }
+
+    /* JD MATCH */
     .jd-grid { display: flex; flex-direction: column; gap: 16px; }
     .jd-item { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
     .jd-item:hover { border-color: var(--border-hover); box-shadow: var(--sh-md); }
@@ -108,21 +124,28 @@
     .jd-match-point { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-2); line-height: 1.6; }
     .jd-match-point::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; margin-top: 8px; }
     @media (max-width: 680px) { .jd-item { grid-template-columns: 1fr; } }
+
+    /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
     .sk-group { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px 24px; }
     .sk-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
     .sk-list { display: flex; flex-direction: column; gap: 9px; }
     .sk-item { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-2); }
     .sk-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; }
+
+    /* FOOTER */
     footer { padding: 60px 0; border-top: 1px solid var(--border); }
     .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
     .footer-name { font-size: 22px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; margin-bottom: 4px; }
     .footer-sub { font-size: 14px; color: var(--text-3); }
+
+    /* FADE IN */
     .fi { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
     .fi.show { opacity: 1; transform: none; }
     .fi:nth-child(2) { transition-delay: 0.08s; }
     .fi:nth-child(3) { transition-delay: 0.16s; }
     .fi:nth-child(4) { transition-delay: 0.24s; }
+
     @media (max-width: 800px) {
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .metrics-grid { grid-template-columns: repeat(2,1fr); }
@@ -140,6 +163,7 @@
   </style>
 </head>
 <body>
+
 <header id="hd">
   <div class="h-inner">
     <a href="#" class="logo">오희은</a>
@@ -149,12 +173,19 @@
       <a href="#jd">요건 매칭</a>
       <a href="#contact">연락하기</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- ══ HERO ══ -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Customer Experience · Product Feedback · B2B SaaS</div>
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Customer Experience · Product Feedback · B2B SaaS
+    </div>
     <h1 class="hero-name">오희은</h1>
     <p class="hero-role">플렉스(flex) · Customer Experience Manager 지원</p>
     <div class="hero-tagline">
@@ -165,12 +196,21 @@
       </p>
     </div>
     <div class="hero-cta">
-      <a href="#cases" class="btn btn-dark">케이스 스터디 보기<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#jd" class="btn btn-outline">요건 매칭 확인하기<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#cases" class="btn btn-dark">
+        케이스 스터디 보기
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#jd" class="btn btn-outline">
+        요건 매칭 확인하기
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </section>
+
 <div class="wrap"><div class="hr"></div></div>
+
+<!-- ══ ABOUT ══ -->
 <section class="sec" id="about">
   <div class="wrap">
     <p class="sec-eyebrow">About</p>
@@ -178,143 +218,365 @@
     <div class="about-grid">
       <div>
         <div class="about-text fi">
-          <p>플렉스의 CX는 단순 CS가 아닙니다. 고객사의 인사 제도가 플렉스라는 제품 안에서 최적으로 작동하도록 돕는 솔루션 컨설팅입니다. 저는 <strong>고객의 반복 문의에서 패턴을 읽고, 그것을 제품 개선 과제로 바꾸는 방식</strong>으로 일해왔습니다. VOC 173건을 전수 분류해 82%가 동일 구조 원인임을 데이터로 증명했고, UX 구조 문제를 재정의해 CTO에게 직접 제안→당일 구현→CS 0건으로 이어졌습니다.</p>
-          <p>HR·노무 도메인이 처음이라는 것을 알고 있습니다. 하지만 저는 새로운 도메인 앞에서 멈추지 않습니다. 택배 표준약관과 물류 계약서를 Claude로 해석하고 NotebookLM으로 원문 교차 검증해 협상 근거를 만들어냈고, CS 판단 기준이 없던 자리에서 직접 설계해 경영진 보고로 전사 기준을 확정했습니다. <strong>어려운 지식을 빠르게 파악해 고객이 알아들을 수 있는 말로 풀어내는 것.</strong> 그게 제가 새로운 도메인에 들어가는 방식입니다.</p>
-          <p>AI 도구를 실무에 직접 도입해 비개발 직군 중 유일하게 업무비 공식 승인을 받았고, Chrome Extension을 직접 구현해 CS 8단계를 2단계로 바꿨습니다. <strong>AI Platform 회사의 CX에서, AI를 실무 파트너로 쓰는 사람이 필요하다면 그게 저입니다.</strong></p>
+          <p>
+            플렉스의 CX는 단순 CS가 아닙니다. 고객사의 인사 제도가 플렉스라는 제품 안에서 최적으로 작동하도록 돕는 솔루션 컨설팅입니다.
+            저는 <strong>고객의 반복 문의에서 패턴을 읽고, 그것을 제품·운영 개선 과제로 바꾸는 방식</strong>으로 일해왔습니다.
+            프로모션 오인 VOC 173건을 전수 분류해 82%가 동일 구조 원인임을 데이터로 증명해 운영 기준을 수립했고, 배송 VOC 패턴에서는 UX 구조 문제를 재정의해 CTO에게 직접 제안→당일 구현→CS 0건으로 이어졌습니다.
+          </p>
+          <p>
+            HR·노무 도메인이 처음이라는 것을 알고 있습니다. 하지만 저는 새로운 도메인 앞에서 멈추지 않습니다.
+            택배 표준약관과 물류 계약서를 Claude로 해석하고 NotebookLM으로 원문 교차 검증해 협상 근거를 만들어냈고,
+            CS 판단 기준이 없던 자리에서 직접 설계해 경영진 보고로 전사 기준을 확정했습니다.
+            <strong>어려운 지식을 빠르게 파악해 고객이 알아들을 수 있는 말로 풀어내는 것.</strong> 그게 제가 새로운 도메인에 들어가는 방식입니다.
+          </p>
+          <p>
+            AI 도구를 실무에 직접 도입해 비개발 직군 중 유일하게 업무비 공식 승인을 받았고,
+            Chrome Extension을 직접 구현해 CS 8단계를 2단계로 바꿨습니다.
+            <strong>AI Platform 회사의 CX에서, AI를 실무 파트너로 쓰는 사람이 필요하다면 그게 저입니다.</strong>
+          </p>
         </div>
         <div class="about-chips fi">
-          <span class="chip">B2B 고객 성공 · 리텐션</span><span class="chip">VOC → Product Feedback</span><span class="chip">도메인 지식 번역</span><span class="chip">AI Native 실무 활용</span><span class="chip">Knowledge Base 구축</span><span class="chip">데이터 기반 문제 해결</span>
+          <span class="chip">B2B 고객 성공 · 리텐션</span>
+          <span class="chip">VOC → Product Feedback</span>
+          <span class="chip">도메인 지식 번역</span>
+          <span class="chip">AI Native 실무 활용</span>
+          <span class="chip">Knowledge Base 구축</span>
+          <span class="chip">데이터 기반 문제 해결</span>
         </div>
       </div>
       <div class="about-sidebar">
         <div class="sidebar-card fi">
-          <div class="sidebar-card-top"><div class="sidebar-icon accent"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10.5L5 7L7.5 9.5L10 6L12 8" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="3.5" r="1.5" fill="white"/></svg></div><span class="sidebar-card-label">VOC → Product 피드백 루프</span></div>
+          <div class="sidebar-card-top">
+            <div class="sidebar-icon accent">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10.5L5 7L7.5 9.5L10 6L12 8" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="3.5" r="1.5" fill="white"/></svg>
+            </div>
+            <span class="sidebar-card-label">VOC → Product 피드백 루프</span>
+          </div>
           <p class="sidebar-card-desc">CS 문의를 건별로 처리하지 않습니다. 반복 패턴을 전수 분류해 구조적 원인을 데이터로 규명하고, 개발·기획팀에 제품 개선 과제로 전환합니다. 플렉스 CX가 제품의 성장판이 되는 방식입니다.</p>
         </div>
         <div class="sidebar-card fi">
-          <div class="sidebar-card-top"><div class="sidebar-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2C4.24 2 2 4.24 2 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" stroke="white" stroke-width="1.4"/><path d="M7 5v2.5l1.5 1.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div><span class="sidebar-card-label">도메인을 고객 언어로 번역하기</span></div>
+          <div class="sidebar-card-top">
+            <div class="sidebar-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2C4.24 2 2 4.24 2 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" stroke="white" stroke-width="1.4"/><path d="M7 5v2.5l1.5 1.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <span class="sidebar-card-label">도메인을 고객 언어로 번역하기</span>
+          </div>
           <p class="sidebar-card-desc">물류 계약서, CS 판단 기준, 배상 정산 구조. 모두 처음 접하는 영역이었지만 Claude 해석 + NotebookLM 원문 교차 검증으로 법적 정확도를 확보하며 직접 만들었습니다. 근로기준법·취업규칙·급여 정산도 같은 방식으로 접근합니다.</p>
         </div>
         <div class="sidebar-card fi">
-          <div class="sidebar-card-top"><div class="sidebar-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="white" stroke-width="1.4"/><path d="M5 7h4M7 5v4" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg></div><span class="sidebar-card-label">기준이 없으면 직접 만든다</span></div>
+          <div class="sidebar-card-top">
+            <div class="sidebar-icon">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="white" stroke-width="1.4"/><path d="M5 7h4M7 5v4" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <span class="sidebar-card-label">기준이 없으면 직접 만든다</span>
+          </div>
           <p class="sidebar-card-desc">SLA 기준, CS 판단 가이드, 운영 표준, 지식 베이스. 없는 걸 발견하면 기다리지 않습니다. 데이터로 설계하고, 경영진 보고로 확정합니다. 스타트업에서 구조를 만드는 방식입니다.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <div class="wrap"><div class="hr"></div></div>
+
+<!-- ══ METRICS ══ -->
 <section class="sec sec-alt">
   <div class="wrap">
     <p class="sec-eyebrow">Key Results</p>
     <h2 class="sec-title">숫자로 증명한 성과</h2>
     <div class="metrics-grid">
-      <div class="m-card fi"><div class="m-number">0건</div><div class="m-label">반복 CS 문의 완전 해소</div><div class="m-sub">일 6~10건 → 0건<br>VOC 분석 → CTO 제안 → 당일 구현</div></div>
-      <div class="m-card fi"><div class="m-number">173건</div><div class="m-label">VOC 전수 분류·분석</div><div class="m-sub">82% 동일 원인 규명<br>Product Feedback으로 전환·실행</div></div>
-      <div class="m-card fi"><div class="m-number">8→2단계</div><div class="m-label">AI 기반 CS 자동화</div><div class="m-sub">Chrome Extension 직접 구현<br>비개발 유일 AI 업무비 공식 승인</div></div>
-      <div class="m-card fi"><div class="m-number">400+</div><div class="m-label">B2B 파트너 운영 체계</div><div class="m-sub">운영 기준 재정비·표준화<br>반복 문의율 감소 · Knowledge Base 구축</div></div>
+      <div class="m-card fi">
+        <div class="m-number">0건</div>
+        <div class="m-label">반복 CS 문의 완전 해소</div>
+        <div class="m-sub">일 6~10건 → 0건<br>VOC 분석 → CTO 직접 제안 → 당일 구현</div>
+      </div>
+      <div class="m-card fi">
+        <div class="m-number">173건</div>
+        <div class="m-label">VOC 전수 분류·분석</div>
+        <div class="m-sub">82% 동일 원인 규명<br>Product Feedback으로 전환·실행</div>
+      </div>
+      <div class="m-card fi">
+        <div class="m-number">8→2단계</div>
+        <div class="m-label">AI 기반 CS 자동화</div>
+        <div class="m-sub">Chrome Extension 직접 구현<br>비개발 유일 AI 업무비 공식 승인</div>
+      </div>
+      <div class="m-card fi">
+        <div class="m-number">400+</div>
+        <div class="m-label">B2B 파트너 운영 체계</div>
+        <div class="m-sub">운영 기준 재정비·표준화<br>반복 문의율 감소 · Knowledge Base 구축</div>
+      </div>
     </div>
   </div>
 </section>
+
 <div class="wrap"><div class="hr"></div></div>
+
+<!-- ══ CASES ══ -->
 <section class="sec" id="cases">
   <div class="wrap">
     <p class="sec-eyebrow">Case Study</p>
     <h2 class="sec-title">실제로 해결한 문제들</h2>
     <div class="cases-grid">
+
+      <!-- Case 1: VOC → Product Feedback -->
       <a class="c-card fi" href="#">
-        <div class="c-tags"><span class="c-tag accent">VOC → Product Feedback</span><span class="c-tag">데이터 분석</span><span class="c-tag">CTO 직접 제안</span></div>
-        <h3 class="c-title">VOC 전수 분류로 UX 구조 문제 재정의 — CTO 제안·당일 구현으로 반복 CS 0건</h3>
-        <p class="c-desc">프로모션 오인 VOC 173건을 전수 분류해 82%가 동일한 구조적 원인에서 발생함을 데이터로 증명했습니다. 배송 제약 상품이 잘못 표시되는 UX 구조 문제를 VOC 패턴에서 재정의해 CTO에게 직접 제안했습니다. CTO가 즉시 수용·당일 구현했고, 반복 문의는 0건이 됐습니다.</p>
+        <div class="c-tags">
+          <span class="c-tag accent">VOC → Product Feedback</span>
+          <span class="c-tag">데이터 분석</span>
+          <span class="c-tag">CTO 직접 제안</span>
+        </div>
+        <h3 class="c-title">반복 VOC 전수 분류로 구조적 원인 발굴 — CTO 직접 제안·당일 구현으로 CS 0건</h3>
+        <p class="c-desc">프로모션 오인 VOC 173건을 전수 분류해 82%가 동일한 구조적 원인에서 발생함을 데이터로 증명해 운영 기준을 수립했습니다. 또한 배송 제약 상품의 표시 방식에서 UX 구조 문제를 발견해 CTO에게 직접 제안했습니다. 반년 전 거절됐던 안건이었지만 VOC 데이터를 근거로 재제안했고, CTO가 즉시 수용·당일 구현해 반복 문의는 0건이 됐습니다.</p>
         <div class="c-bottom">
-          <div class="c-metric"><span class="c-metric-val">일 6~10건→0건</span><span class="c-metric-lab">VOC 재정의 → CTO 제안 → 당일 구현 → 반복 문의 해소</span></div>
+          <div class="c-metric">
+            <span class="c-metric-val">일 6~10건→0건</span>
+            <span class="c-metric-lab">VOC → Product Feedback → 제품 개선 → 반복 문의 해소</span>
+          </div>
           <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
+
+      <!-- Case 2: B2B 파트너 운영 -->
       <a class="c-card fi" href="#">
-        <div class="c-tags"><span class="c-tag accent">B2B 고객 성공</span><span class="c-tag">Knowledge Base</span><span class="c-tag">운영 기준 표준화</span></div>
+        <div class="c-tags">
+          <span class="c-tag accent">B2B 고객 성공</span>
+          <span class="c-tag">Knowledge Base</span>
+          <span class="c-tag">운영 기준 표준화</span>
+        </div>
         <h3 class="c-title">B2B 파트너 400곳 운영 기준 재정비 · Knowledge Base 구축</h3>
         <p class="c-desc">카카오VX에서 골프장 파트너 400여 곳의 어드민 운영 데이터를 기준화하고, VOC 분석 기반으로 운영 가이드를 전면 재정비했습니다. 파트너별로 달랐던 판단 기준을 통일하고 반복 문의 패턴을 분류해 Knowledge Base를 구축한 사례입니다. B2B 고객이 스스로 해결할 수 있는 구조를 만드는 방식입니다.</p>
         <div class="c-bottom">
-          <div class="c-metric"><span class="c-metric-val">400+ 파트너</span><span class="c-metric-lab">운영 기준 표준화 · 반복 문의율 감소</span></div>
+          <div class="c-metric">
+            <span class="c-metric-val">400+ 파트너</span>
+            <span class="c-metric-lab">운영 기준 표준화 · 반복 문의율 감소</span>
+          </div>
           <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
+
+      <!-- Case 3: 도메인 지식 번역 -->
       <a class="c-card fi" href="#">
-        <div class="c-tags"><span class="c-tag accent">도메인 지식 번역</span><span class="c-tag">계약 분석</span><span class="c-tag">B2B 파트너 협상</span></div>
+        <div class="c-tags">
+          <span class="c-tag accent">도메인 지식 번역</span>
+          <span class="c-tag">계약 분석</span>
+          <span class="c-tag">B2B 파트너 협상</span>
+        </div>
         <h3 class="c-title">계약서 AI 분석 + NotebookLM 교차 검증 → 협상 근거 확보 → 배상회수율 14.7배 개선</h3>
         <p class="c-desc">택배 표준약관과 물류 계약서를 Claude로 해석하고 NotebookLM으로 원문 근거를 교차 검증해 협상 근거를 확보했습니다. Claude는 계약 구조를 해석하고, NotebookLM은 업로드한 문서만 참조하기 때문에 "이 조항이 실제로 있는가"를 이중으로 확인했습니다. 계약서 안에 숨어 있던 선공제 조항을 발굴해 귀책 기준과 정산 체계를 직접 수립한 사례입니다. 법률·규정 문서에서 이 방법론은 플렉스의 HR·노무 영역에서도 그대로 씁니다.</p>
         <div class="c-bottom">
-          <div class="c-metric"><span class="c-metric-val">배상회수율 14.7배</span><span class="c-metric-lab">AI 계약 분석 → 협상 근거 → 월 1,900만 선공제 구조 확보</span></div>
+          <div class="c-metric">
+            <span class="c-metric-val">배상회수율 14.7배</span>
+            <span class="c-metric-lab">AI 계약 분석 → 협상 근거 → 월 1,900만 선공제 구조 확보</span>
+          </div>
           <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
+
+      <!-- Case 4: AI 기반 자동화 -->
       <a class="c-card fi" href="#">
-        <div class="c-tags"><span class="c-tag accent">AI 기반 CX 자동화</span><span class="c-tag">생성형 AI 직접 구현</span><span class="c-tag">운영 고도화</span></div>
+        <div class="c-tags">
+          <span class="c-tag accent">AI 기반 CX 자동화</span>
+          <span class="c-tag">생성형 AI 직접 구현</span>
+          <span class="c-tag">운영 고도화</span>
+        </div>
         <h3 class="c-title">생성형 AI로 CS 8단계→2단계 자동화 — 비개발 직군 유일 AI 비용 공식 승인</h3>
         <p class="c-desc">Claude를 활용해 Chrome Extension을 직접 구현하고 반복 CS 프로세스를 8단계에서 2단계로 축소했습니다. VOC 분류·계약 분석·보고 자동화에 AI를 실무 적용하고, AI 도입 필요성을 조직에 직접 제안해 비개발 직군 중 유일하게 업무비 공식 승인을 받은 사례입니다. AI Platform 회사의 CX에서 AI를 실무 파트너로 쓰는 방식입니다.</p>
         <div class="c-bottom">
-          <div class="c-metric"><span class="c-metric-val">8→2단계</span><span class="c-metric-lab">CS 자동화 · 1,151건 단독 처리 · 비개발 유일 AI 승인</span></div>
+          <div class="c-metric">
+            <span class="c-metric-val">8→2단계</span>
+            <span class="c-metric-lab">CS 자동화 · 1,151건 단독 처리 · 비개발 유일 AI 승인</span>
+          </div>
           <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
+
     </div>
   </div>
 </section>
+
 <div class="wrap"><div class="hr"></div></div>
+
+<!-- ══ JD MATCH ══ -->
 <section class="sec sec-alt" id="jd">
   <div class="wrap">
     <p class="sec-eyebrow">JD Match</p>
     <h2 class="sec-title">플렉스가 원하는 것과 나의 연결</h2>
     <div class="jd-grid">
+
       <div class="jd-item fi">
-        <div class="jd-left"><div class="jd-num">플렉스의 CX 01</div><div class="jd-req">단순 CS가 아닌 B2B 고객 성공 설계 — 고객사의 인사 제도가 flex 안에서 최적으로 작동하도록</div><div class="jd-keyword-row"><span class="jd-kw">Customer Success</span><span class="jd-kw">B2B SaaS</span><span class="jd-kw">리텐션</span></div></div>
-        <div class="jd-right"><div class="jd-match-label">나의 경험</div><div class="jd-match-title">B2B 파트너 400곳 운영 기준 재정비 + 파트너가 스스로 해결하는 구조 설계</div><div class="jd-match-points"><div class="jd-match-point">카카오VX 골프장 파트너 400여 곳 운영 기준 표준화. 개별 문의에 답하는 게 아니라 파트너가 기준을 따르는 구조를 만든 경험입니다</div><div class="jd-match-point">반복 문의 패턴 분류 → 운영 가이드 전면 재정비 → Knowledge Base 구축으로 파트너 자기해결률 향상</div><div class="jd-match-point">택배 파트너 계약 분석 → 협상 근거 확보 → 정산 구조 재설계로 파트너와의 관계에서 기준의 주도권 확보</div></div></div>
+        <div class="jd-left">
+          <div class="jd-num">플렉스의 CX 01</div>
+          <div class="jd-req">단순 CS가 아닌 B2B 고객 성공 설계 — 고객사의 인사 제도가 flex 안에서 최적으로 작동하도록</div>
+          <div class="jd-keyword-row">
+            <span class="jd-kw">Customer Success</span>
+            <span class="jd-kw">B2B SaaS</span>
+            <span class="jd-kw">리텐션</span>
+          </div>
+        </div>
+        <div class="jd-right">
+          <div class="jd-match-label">나의 경험</div>
+          <div class="jd-match-title">B2B 파트너 400곳 운영 기준 재정비 + 파트너가 스스로 해결하는 구조 설계</div>
+          <div class="jd-match-points">
+            <div class="jd-match-point">카카오VX 골프장 파트너 400여 곳 운영 기준 표준화. 개별 문의에 답하는 게 아니라 파트너가 기준을 따르는 구조를 만든 경험입니다</div>
+            <div class="jd-match-point">반복 문의 패턴 분류 → 운영 가이드 전면 재정비 → Knowledge Base 구축으로 파트너 자기해결률 향상</div>
+            <div class="jd-match-point">택배 파트너 계약 분석 → 협상 근거 확보 → 정산 구조 재설계로 파트너와의 관계에서 기준의 주도권 확보</div>
+          </div>
+        </div>
       </div>
+
       <div class="jd-item fi">
-        <div class="jd-left"><div class="jd-num">플렉스의 CX 02</div><div class="jd-req">VOC → Product Feedback 루프 — 고객 목소리가 제품 업데이트에 직접 반영되는 구조</div><div class="jd-keyword-row"><span class="jd-kw">VOC 분석</span><span class="jd-kw">제품 개선 제안</span><span class="jd-kw">데이터 기반</span></div></div>
-        <div class="jd-right"><div class="jd-match-label">나의 경험</div><div class="jd-match-title">VOC 173건 전수 분류 → UX 구조 문제 재정의 → CTO 직접 제안 → 당일 구현</div><div class="jd-match-points"><div class="jd-match-point">반복 VOC를 건별 처리 대신 전수 분류해 82%가 동일 구조 원인임을 데이터로 증명, UX 구조 문제 재정의 후 CTO에게 직접 제안</div><div class="jd-match-point">VOC 패턴에서 UX 구조 문제를 발굴 → CTO 재제안(반년 전 거절됐던 건) → 당일 구현·배포 → CS 0건</div><div class="jd-match-point">CS 입력 구조 재설계 스펙을 직접 설계해 개발팀 협의 → AS 재확인 왕복 95%+ 제거, 데이터 품질 향상</div></div></div>
+        <div class="jd-left">
+          <div class="jd-num">플렉스의 CX 02</div>
+          <div class="jd-req">VOC → Product Feedback 루프 — 고객 목소리가 제품 업데이트에 직접 반영되는 구조</div>
+          <div class="jd-keyword-row">
+            <span class="jd-kw">VOC 분석</span>
+            <span class="jd-kw">제품 개선 제안</span>
+            <span class="jd-kw">데이터 기반</span>
+          </div>
+        </div>
+        <div class="jd-right">
+          <div class="jd-match-label">나의 경험</div>
+          <div class="jd-match-title">VOC 173건 전수 분류·82% 원인 규명 → UX 구조 문제 재정의 → CTO 직접 제안 → 당일 구현</div>
+          <div class="jd-match-points">
+            <div class="jd-match-point">반복 VOC를 건별 처리 대신 전수 분류해 82%가 동일 구조 원인임을 데이터로 증명, UX 구조 문제 재정의 후 CTO에게 직접 제안</div>
+            <div class="jd-match-point">VOC 패턴에서 UX 구조 문제를 발굴 → CTO 재제안(반년 전 거절됐던 건) → 당일 구현·배포 → CS 0건</div>
+            <div class="jd-match-point">CS 입력 구조 재설계 스펙을 직접 설계해 개발팀 협의 → AS 재확인 왕복 95%+ 제거, 데이터 품질 향상</div>
+          </div>
+        </div>
       </div>
+
       <div class="jd-item fi">
-        <div class="jd-left"><div class="jd-num">플렉스의 CX 03</div><div class="jd-req">인사·노무 도메인 지식 — 근로기준법, 급여 정산 프로세스를 고객이 이해하는 언어로 번역</div><div class="jd-keyword-row"><span class="jd-kw">도메인 전문화</span><span class="jd-kw">지식 번역</span><span class="jd-kw">Knowledge Base</span></div></div>
-        <div class="jd-right"><div class="jd-match-label">나의 경험</div><div class="jd-match-title">처음 접한 도메인도 직접 파고들었습니다. 물류 계약, CS 법규, 정산 기준 모두 기존 지식 없이 만든 것들입니다</div><div class="jd-match-points"><div class="jd-match-point">택배 표준약관·물류 계약서: Claude로 계약 구조 해석 + NotebookLM으로 원문 교차 검증. 법률 문서는 AI 한 곳만 쓰지 않습니다. 근로기준법·취업규칙도 같은 방법론을 씁니다</div><div class="jd-match-point">CS 판단 기준 없던 자리에서 직접 설계 → 경영진 보고·확정 → 팀 전체가 따르는 기준으로 안착</div><div class="jd-match-point">HR 도메인도 같은 방식으로 접근합니다. 모르면 먼저 파고들고, 고객이 이해하는 언어로 번역합니다</div></div></div>
+        <div class="jd-left">
+          <div class="jd-num">플렉스의 CX 03</div>
+          <div class="jd-req">인사·노무 도메인 지식 — 근로기준법, 급여 정산 프로세스를 고객이 이해하는 언어로 번역</div>
+          <div class="jd-keyword-row">
+            <span class="jd-kw">도메인 전문화</span>
+            <span class="jd-kw">지식 번역</span>
+            <span class="jd-kw">Knowledge Base</span>
+          </div>
+        </div>
+        <div class="jd-right">
+          <div class="jd-match-label">나의 경험</div>
+          <div class="jd-match-title">처음 접한 도메인도 직접 파고들었습니다. 물류 계약, CS 법규, 정산 기준 모두 기존 지식 없이 만든 것들입니다</div>
+          <div class="jd-match-points">
+            <div class="jd-match-point">택배 표준약관·물류 계약서: Claude로 계약 구조 해석 + NotebookLM으로 원문 교차 검증. 법률 문서는 AI 한 곳만 쓰지 않습니다. 근로기준법·취업규칙도 같은 방법론을 씁니다</div>
+            <div class="jd-match-point">CS 판단 기준 없던 자리에서 직접 설계 → 경영진 보고·확정 → 팀 전체가 따르는 기준으로 안착</div>
+            <div class="jd-match-point">HR 도메인도 같은 방식으로 접근합니다. 모르면 먼저 파고들고, 고객이 이해하는 언어로 번역합니다</div>
+          </div>
+        </div>
       </div>
+
       <div class="jd-item fi">
-        <div class="jd-left"><div class="jd-num">플렉스의 CX 04</div><div class="jd-req">AI를 CX에 통합한 하이 퍼포머 — 스스로 문제를 정의하고, 빠른 피드백 루프로 높은 기준을 달성</div><div class="jd-keyword-row"><span class="jd-kw">자기 주도성</span><span class="jd-kw">AI 활용</span><span class="jd-kw">스타트업 마인드셋</span></div></div>
-        <div class="jd-right"><div class="jd-match-label">나의 경험</div><div class="jd-match-title">아무도 시키지 않았습니다. Chrome Extension 직접 구현, AI 비용 제안·승인, CEO 보고 정식 운영 모두 그렇게 시작됐습니다</div><div class="jd-match-points"><div class="jd-match-point">Chrome Extension, AI 자금집행 리포트, CS 입력 구조 재설계. 셋 다 지시 없이 먼저 발견하고 직접 만든 것들입니다</div><div class="jd-match-point">비개발 직군 유일 AI 업무비 공식 승인. AI 도입 필요성을 직접 제안해서 조직의 구조를 바꾼 경험입니다</div><div class="jd-match-point">팀 전원 이탈 상황에서도 운영 연속성을 직접 만들었습니다. 구조가 없으면 만드는 것이 제 방식입니다</div></div></div>
+        <div class="jd-left">
+          <div class="jd-num">플렉스의 CX 04</div>
+          <div class="jd-req">AI를 CX에 통합한 하이 퍼포머 — 스스로 문제를 정의하고, 빠른 피드백 루프로 높은 기준을 달성</div>
+          <div class="jd-keyword-row">
+            <span class="jd-kw">자기 주도성</span>
+            <span class="jd-kw">AI 활용</span>
+            <span class="jd-kw">스타트업 마인드셋</span>
+          </div>
+        </div>
+        <div class="jd-right">
+          <div class="jd-match-label">나의 경험</div>
+          <div class="jd-match-title">아무도 시키지 않았습니다. Chrome Extension 직접 구현, AI 비용 제안·승인, CEO 보고 정식 운영 모두 그렇게 시작됐습니다</div>
+          <div class="jd-match-points">
+            <div class="jd-match-point">Chrome Extension, AI 자금집행 리포트, CS 입력 구조 재설계. 셋 다 지시 없이 먼저 발견하고 직접 만든 것들입니다</div>
+            <div class="jd-match-point">비개발 직군 유일 AI 업무비 공식 승인. AI 도입 필요성을 직접 제안해서 조직의 구조를 바꾼 경험입니다</div>
+            <div class="jd-match-point">팀 전원 이탈 상황에서도 운영 연속성을 직접 만들었습니다. 구조가 없으면 만드는 것이 제 방식입니다</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
+
 <div class="wrap"><div class="hr"></div></div>
+
+<!-- ══ SKILLS ══ -->
 <section class="sec">
   <div class="wrap">
     <p class="sec-eyebrow">Skills &amp; Tools</p>
     <h2 class="sec-title">역량 및 도구</h2>
     <div class="skills-grid">
-      <div class="sk-group fi"><div class="sk-title">CX · Customer Success</div><div class="sk-list"><div class="sk-item">B2B 파트너·고객 운영 기준 설계</div><div class="sk-item">VOC 전수 분류 · 구조적 원인 규명</div><div class="sk-item">Product Feedback 전환 · 개발팀 협업</div><div class="sk-item">에스컬레이션 이슈 구조화 · 대응</div><div class="sk-item">CS 운영 기준 · SLA 기준 설계</div><div class="sk-item">Knowledge Base 구축 · 문서화</div></div></div>
-      <div class="sk-group fi"><div class="sk-title">AI · 자동화</div><div class="sk-list"><div class="sk-item">Claude · ChatGPT · Gemini · NotebookLM</div><div class="sk-item">Chrome Extension (Claude 활용 직접 구현)</div><div class="sk-item">Apps Script · VBA (업무 자동화)</div><div class="sk-item">Zapier (워크플로우 자동화)</div><div class="sk-item">AI 도입 전략 수립 · 조직 제안·승인</div><div class="sk-item">Claude + NotebookLM 교차 검증 (법률·계약 문서)</div></div></div>
-      <div class="sk-group fi"><div class="sk-title">데이터 · 협업 도구</div><div class="sk-list"><div class="sk-item">Excel 고급 (운영 지표 설계·집계)</div><div class="sk-item">Google Sheets · 데이터 정합성 관리</div><div class="sk-item">Notion (운영 기준·케이스 문서화)</div><div class="sk-item">Slack (자동화 연동 포함)</div><div class="sk-item">영어 커뮤니케이션 (Verbal/Written)</div></div></div>
+      <div class="sk-group fi">
+        <div class="sk-title">CX · Customer Success</div>
+        <div class="sk-list">
+          <div class="sk-item">B2B 파트너·고객 운영 기준 설계</div>
+          <div class="sk-item">VOC 전수 분류 · 구조적 원인 규명</div>
+          <div class="sk-item">Product Feedback 전환 · 개발팀 협업</div>
+          <div class="sk-item">에스컬레이션 이슈 구조화 · 대응</div>
+          <div class="sk-item">CS 운영 기준 · SLA 기준 설계</div>
+          <div class="sk-item">Knowledge Base 구축 · 문서화</div>
+        </div>
+      </div>
+      <div class="sk-group fi">
+        <div class="sk-title">AI · 자동화</div>
+        <div class="sk-list">
+          <div class="sk-item">Claude · ChatGPT · Gemini · NotebookLM</div>
+          <div class="sk-item">Chrome Extension (Claude 활용 직접 구현)</div>
+          <div class="sk-item">Apps Script · VBA (업무 자동화)</div>
+          <div class="sk-item">Zapier (워크플로우 자동화)</div>
+          <div class="sk-item">AI 도입 전략 수립 · 조직 제안·승인</div>
+          <div class="sk-item">Claude + NotebookLM 교차 검증 (법률·계약 문서)</div>
+        </div>
+      </div>
+      <div class="sk-group fi">
+        <div class="sk-title">데이터 · 협업 도구</div>
+        <div class="sk-list">
+          <div class="sk-item">Excel 고급 (운영 지표 설계·집계)</div>
+          <div class="sk-item">Google Sheets · 데이터 정합성 관리</div>
+          <div class="sk-item">Notion (운영 기준·케이스 문서화)</div>
+          <div class="sk-item">Slack (자동화 연동 포함)</div>
+          <div class="sk-item">영어 커뮤니케이션 (Verbal/Written)</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ══ FOOTER / CONTACT ══ -->
 <footer id="contact">
   <div class="wrap">
     <div class="footer-grid">
-      <div><div class="footer-name">오희은</div><div class="footer-sub">플렉스(flex) · Customer Experience Manager 지원</div><div class="footer-sub" style="margin-top:4px;">gldms1009@naver.com &nbsp;·&nbsp; 010-2357-2674</div></div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;"><a href="mailto:gldms1009@naver.com" class="btn btn-dark">이메일 보내기</a></div>
+      <div>
+        <div class="footer-name">오희은</div>
+        <div class="footer-sub">플렉스(flex) · Customer Experience Manager 지원</div>
+        <div class="footer-sub" style="margin-top:4px;">gldms1009@naver.com &nbsp;·&nbsp; 010-2357-2674</div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="mailto:gldms1009@naver.com" class="btn btn-dark">이메일 보내기</a>
+      </div>
     </div>
   </div>
 </footer>
+
 <script>
   const hd = document.getElementById('hd');
   window.addEventListener('scroll', () => { hd.classList.toggle('on', window.scrollY > 8); }, { passive: true });
-  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }); }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.fi').forEach(el => { const rect = el.getBoundingClientRect(); if (rect.top < window.innerHeight) { el.classList.add('show'); } else { io.observe(el); } });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fi').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) { el.classList.add('show'); }
+    else { io.observe(el); }
+  });
   const navToggle = document.getElementById('navToggle');
   const navEl = document.getElementById('nav');
   navToggle.addEventListener('click', () => { navToggle.classList.toggle('open'); navEl.classList.toggle('open'); });
-  document.querySelectorAll('nav a, .btn[href^="#"]').forEach(a => { a.addEventListener('click', e => { const href = a.getAttribute('href'); if (href.startsWith('#')) { e.preventDefault(); const target = document.querySelector(href); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); navToggle.classList.remove('open'); navEl.classList.remove('open'); } }); });
+  document.querySelectorAll('nav a, .btn[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        navToggle.classList.remove('open');
+        navEl.classList.remove('open');
+      }
+    });
+  });
 </script>
 </body>
-                                                                                                                                                                      </html>
+              </html>
