@@ -1,525 +1,1142 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>오희은 | Customer Experience Manager — 플렉스(flex) 지원</title>
-  <meta name="description" content="VOC를 제품 개선으로 연결하는 CX. B2B 고객 성공 설계 · AI 운영 자동화 · 데이터 기반 문제 해결">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --white: #FFFFFF; --bg-soft: #F7F7F8; --bg-card: #F3F3F4;
-      --border: #E5E5E6; --border-hover: #282D32;
-      --text-1: #141416; --text-2: #50505A; --text-3: #909098;
-      --charcoal: #282D32; --charcoal-2: #1A1E21; --charcoal-a: rgba(40,45,50,0.07);
-      --sh-sm: 0 1px 4px rgba(0,0,0,0.06); --sh-md: 0 4px 20px rgba(0,0,0,0.09); --sh-lg: 0 12px 40px rgba(0,0,0,0.12);
-      --r: 10px; --r-sm: 6px; --ease: cubic-bezier(.4,0,.2,1); --t: 0.22s;
-    }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-1); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.7; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
-    .hr { width: 100%; height: 1px; background: var(--border); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오희은 | Customer Experience Manager · 플렉스(flex) 지원</title>
+<meta name="description" content="VOC를 제품 개선으로 연결하는 CX. B2B 고객 성공 설계 · AI 운영 자동화 · 데이터 기반 문제 해결">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-soft: #F7F7F7;
+    --bg-card: #FAFAFA;
+    --border: #E5E5E5;
+    --border-mid: #D4D4D4;
+    --ink-1: #111111;
+    --ink-2: #2A2A2A;
+    --ink-3: #555555;
+    --ink-4: #888888;
+    --ink-5: #B0B0B0;
+    --accent: #111111;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    color: var(--ink-1);
+    background: var(--bg);
+    font-size: 15px;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 
-    /* HEADER */
-    header { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid transparent; transition: border-color var(--t) var(--ease); }
-    header.on { border-bottom-color: var(--border); }
-    .h-inner { max-width: 980px; margin: 0 auto; padding: 0 28px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-size: 16px; font-weight: 800; color: var(--charcoal); text-decoration: none; letter-spacing: -0.02em; }
-    nav { display: flex; gap: 30px; }
-    nav a { font-size: 14px; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color var(--t); }
-    nav a:hover { color: var(--charcoal); }
-    .nav-toggle { display: none; width: 36px; height: 36px; border: none; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
-    .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: transform var(--t) var(--ease), opacity var(--t); }
-    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width: 800px) {
-      .nav-toggle { display: flex; }
-      nav { display: none; position: absolute; top: 62px; left: 0; right: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); flex-direction: column; gap: 0; border-bottom: 1px solid var(--border); padding: 8px 0; }
-      nav.open { display: flex; }
-      nav a { padding: 14px 28px; font-size: 15px; }
-      nav a:hover { background: var(--bg-soft); }
-    }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
 
-    /* HERO */
-    .hero { padding: 96px 0 80px; position: relative; overflow: hidden; background-image: radial-gradient(circle, rgba(26,31,46,0.10) 1.5px, transparent 1px); background-size: 28px 28px; background-position: 14px 14px; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 24px; }
-    .hero-eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--charcoal); }
-    .hero-name { font-size: clamp(52px, 7vw, 80px); font-weight: 800; letter-spacing: -0.04em; color: var(--charcoal); line-height: 1.0; margin-bottom: 10px; }
-    .hero-role { font-size: clamp(17px, 2.2vw, 20px); font-weight: 500; color: var(--text-2); letter-spacing: -0.01em; margin-bottom: 36px; }
-    .hero-tagline { position: relative; padding: 0 0 0 22px; margin-bottom: 48px; max-width: 600px; }
-    .hero-tagline::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 2px; background: var(--charcoal); }
-    .hero-tagline p { font-size: clamp(15px, 1.8vw, 17px); color: var(--text-1); line-height: 1.85; }
-    .hero-tagline strong { font-weight: 600; }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 18px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-weight: 800; font-size: 16px; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: 14px;
+    color: var(--ink-3);
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--ink-1); }
+  @media (max-width: 720px) {
+    .nav-inner { padding: 14px 20px; }
+    .nav-links { display: none; }
+  }
 
-    /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-size: 14px; font-weight: 600; border-radius: var(--r-sm); text-decoration: none; letter-spacing: -0.01em; transition: all var(--t) var(--ease); }
-    .btn svg { flex-shrink: 0; }
-    .btn-dark { background: var(--charcoal); color: var(--white); border: 1.5px solid var(--charcoal); }
-    .btn-dark:hover { background: var(--charcoal-2); border-color: var(--charcoal-2); transform: translateY(-1px); box-shadow: var(--sh-md); }
-    .btn-outline { background: transparent; color: var(--charcoal); border: 1.5px solid var(--border); }
-    .btn-outline:hover { border-color: var(--charcoal); background: var(--bg-card); transform: translateY(-1px); }
+  /* ===== HERO ===== */
+  .hero {
+    padding: 100px 0 96px;
+    background-image: radial-gradient(circle, rgba(26, 31, 46, 0.1) 1.5px, transparent 1px);
+    background-size: 28px 28px;
+    background-repeat: repeat;
+  }
+  .hero-keywords {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink-1);
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  .hero-name-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-3);
+    margin-bottom: 24px;
+    letter-spacing: -0.005em;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 6.8vw, 88px);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+    margin-bottom: 36px;
+  }
+  .hero h1 .hero-h1-em {
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 .hero-h1-em::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    bottom: 4px;
+    height: 14px;
+    background: var(--ink-1);
+    opacity: 0.1;
+    z-index: -1;
+  }
+  .hero-lead {
+    font-size: 16.5px;
+    color: var(--ink-2);
+    line-height: 1.85;
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+  .hero-lead strong { font-weight: 700; color: var(--ink-1); }
 
-    /* SECTION */
-    .sec { padding: 76px 0; }
-    .sec-alt { background: var(--bg-soft); }
-    .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; }
-    .sec-title { font-size: clamp(22px, 3vw, 28px); font-weight: 700; letter-spacing: -0.025em; color: var(--charcoal); line-height: 1.3; margin-bottom: 40px; }
+  /* ===== PROPOSAL QUOTE (Hero 직후) ===== */
+  .proposal-quote {
+    background: var(--ink-1);
+    color: var(--bg);
+    padding: 80px 0;
+    border-top: none;
+  }
+  .proposal-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+  .proposal-quote blockquote {
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+    color: var(--bg);
+    margin-bottom: 32px;
+    max-width: 920px;
+  }
+  .proposal-quote blockquote .hl {
+    background: var(--bg);
+    color: var(--ink-1);
+    padding: 0 6px;
+    font-weight: 700;
+  }
+  .proposal-cite {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 720px) {
+    .proposal-quote { padding: 56px 0; }
+  }
+  .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 13px 22px;
+    font-size: 14px; font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+  .btn-primary { background: var(--ink-1); color: var(--bg); }
+  .btn-primary:hover { background: var(--ink-2); }
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--ink-1);
+    border: 1px solid var(--ink-1);
+  }
+  .btn-secondary:hover { background: var(--ink-1); color: var(--bg); }
+  @media (max-width: 720px) { .hero { padding: 56px 0 56px; } }
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
-    .about-text { font-size: 16px; color: var(--text-2); line-height: 1.9; }
-    .about-text strong { color: var(--text-1); font-weight: 600; }
-    .about-text p + p { margin-top: 18px; }
-    .about-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-    .chip { font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 100px; background: var(--charcoal-a); color: var(--charcoal); letter-spacing: 0.01em; }
-    .about-sidebar { display: flex; flex-direction: column; gap: 14px; }
-    .sidebar-card { padding: 20px 22px; background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); }
-    .sidebar-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-    .sidebar-icon { width: 30px; height: 30px; border-radius: var(--r-sm); background: var(--charcoal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .sidebar-icon.accent { background: var(--charcoal); }
-    .sidebar-card-label { font-size: 13px; font-weight: 700; color: var(--text-1); }
-    .sidebar-card-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+  /* ===== SECTION ===== */
+  section { padding: 96px 0; border-top: 1px solid var(--border); }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.25;
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  @media (max-width: 720px) { section { padding: 64px 0; } }
 
-    /* METRICS */
-    .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-    .m-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 28px 18px; text-align: center; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
-    .m-card:hover { box-shadow: var(--sh-md); transform: translateY(-3px); border-color: var(--charcoal); }
-    .m-number { display: inline-block; font-size: 28px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 8px; background: var(--charcoal-a); padding: 4px 14px; border-radius: 8px; }
-    .m-label { font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 6px; }
-    .m-sub { font-size: 11px; color: var(--text-3); line-height: 1.5; }
+  /* ===== ABOUT ===== */
+  .about-body {
+    max-width: 780px;
+    margin-bottom: 36px;
+  }
+  .about-body p {
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.85;
+  }
+  .about-body p + p { margin-top: 16px; }
+  .about-body strong { font-weight: 700; color: var(--ink-1); }
+  .keyword-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 56px;
+  }
+  .keyword-tag {
+    font-size: 13px;
+    color: var(--ink-2);
+    padding: 7px 14px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .mindset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink-1);
+    border-bottom: 1px solid var(--ink-1);
+  }
+  .mindset-cell {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+  }
+  .mindset-cell:last-child { border-right: none; }
+  .mindset-cell h3 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    line-height: 1.35;
+  }
+  .mindset-cell p {
+    font-size: 14.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  @media (max-width: 900px) {
+    .mindset { grid-template-columns: 1fr; }
+    .mindset-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    .mindset-cell:last-child { border-bottom: none; }
+  }
 
-    /* CASES */
-    .cases-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
-    .c-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 30px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t); }
-    .c-card:hover { box-shadow: var(--sh-md); transform: translateY(-3px); border-color: var(--charcoal); }
-    .c-tags { display: flex; gap: 7px; flex-wrap: wrap; }
-    .c-tag { font-size: 11px; font-weight: 600; color: var(--charcoal); background: var(--charcoal-a); padding: 4px 10px; border-radius: 100px; }
-    .c-tag.accent { color: var(--charcoal); background: var(--charcoal-a); }
-    .c-title { font-size: 17px; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; line-height: 1.45; }
-    .c-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; flex: 1; }
-    .c-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border); margin-top: auto; }
-    .c-metric { display: flex; flex-direction: column; gap: 2px; }
-    .c-metric-val { display: inline-block; font-size: 18px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.02em; background: var(--charcoal-a); padding: 2px 10px; border-radius: 6px; }
-    .c-metric-lab { font-size: 11px; color: var(--text-3); }
-    .c-arrow { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--charcoal); flex-shrink: 0; transition: background var(--t), border-color var(--t), transform var(--t); }
-    .c-card:hover .c-arrow { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); transform: translateX(3px); }
+  /* ===== KEY RESULTS ===== */
+  .results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink-1);
+    border-bottom: 1px solid var(--ink-1);
+  }
+  .result-cell {
+    padding: 40px 24px;
+    border-right: 1px solid var(--border);
+  }
+  .result-cell:last-child { border-right: none; }
+  .result-n {
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .result-l {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.015em;
+  }
+  .result-d {
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+  @media (max-width: 900px) {
+    .results { grid-template-columns: 1fr 1fr; }
+    .result-cell:nth-child(2) { border-right: none; }
+    .result-cell:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 540px) {
+    .results { grid-template-columns: 1fr; }
+    .result-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 20px; }
+    .result-cell:last-child { border-bottom: none; }
+  }
 
-    /* MODAL */
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 500; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
-    .modal-overlay.open { display: flex; }
-    .modal { background: var(--white); border-radius: 16px; max-width: 700px; width: 100%; max-height: 88vh; overflow-y: auto; box-shadow: var(--sh-lg); animation: modalIn 0.25s var(--ease); }
-    @keyframes modalIn { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-    .modal-head { padding: 32px 36px 24px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--white); z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-    .modal-close { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background var(--t), border-color var(--t); }
-    .modal-close:hover { background: var(--bg-card); border-color: var(--charcoal); }
-    .modal-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
-    .modal-title { font-size: 20px; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; line-height: 1.4; }
-    .modal-body { padding: 28px 36px 36px; display: flex; flex-direction: column; gap: 24px; }
-    .modal-section { display: flex; flex-direction: column; gap: 8px; }
-    .modal-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
-    .modal-section-text { font-size: 15px; color: var(--text-2); line-height: 1.8; }
-    .modal-section-text strong { color: var(--text-1); font-weight: 600; }
-    .modal-result { background: var(--charcoal); border-radius: 10px; padding: 20px 24px; display: flex; align-items: center; gap: 20px; }
-    .modal-result-num { font-size: 26px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; white-space: nowrap; }
-    .modal-result-desc { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
-    @media (max-width: 600px) { .modal-head { padding: 24px 20px 20px; } .modal-body { padding: 20px 20px 28px; } .modal-title { font-size: 17px; } }
+  /* ===== CASES ===== */
+  .case-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .case-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    width: 100%;
+    display: block;
+  }
+  .case-card:hover {
+    border-color: var(--ink-1);
+    background: var(--bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .case-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 18px;
+  }
+  .case-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-1);
+    background: var(--bg);
+    border: 1px solid var(--border-mid);
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: -0.005em;
+  }
+  .case-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+  .case-card .case-desc {
+    font-size: 14.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .case-card .case-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--ink-3);
+  }
+  .case-card .case-result {
+    font-weight: 700;
+    color: var(--ink-1);
+  }
+  .case-card .case-more {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+  .case-card:hover .case-more { color: var(--ink-1); }
+  @media (max-width: 720px) {
+    .case-list { grid-template-columns: 1fr; }
+    .case-card { padding: 28px 22px; }
+  }
 
-    /* JD MATCH */
-    .jd-grid { display: flex; flex-direction: column; gap: 16px; }
-    .jd-item { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
-    .jd-item:hover { border-color: var(--border-hover); box-shadow: var(--sh-md); }
-    .jd-left { background: var(--charcoal); color: var(--white); padding: 28px 32px; display: flex; flex-direction: column; gap: 10px; }
-    .jd-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-    .jd-req { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--white); }
-    .jd-keyword-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-    .jd-kw { font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); padding: 3px 9px; border-radius: 20px; letter-spacing: 0.02em; }
-    .jd-right { background: var(--white); padding: 28px 32px; display: flex; flex-direction: column; gap: 10px; }
-    .jd-match-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
-    .jd-match-title { font-size: 14px; font-weight: 700; color: var(--text-1); line-height: 1.5; }
-    .jd-match-points { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-    .jd-match-point { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-2); line-height: 1.6; }
-    .jd-match-point::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; margin-top: 8px; }
-    @media (max-width: 680px) { .jd-item { grid-template-columns: 1fr; } }
+  /* ===== CASE MODAL ===== */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    display: none;
+    overflow-y: auto;
+    padding: 40px 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-backdrop.open { display: block; }
+  body.modal-open { overflow: hidden; }
+  .case-detail {
+    background: var(--bg);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 880px;
+    margin: 0 auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    display: none;
+  }
+  .case-detail.active { display: block; }
+  .detail-head {
+    background: var(--ink-1);
+    color: var(--bg);
+    padding: 28px 36px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .detail-head-no {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.5);
+    padding-right: 20px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+  }
+  .detail-head h3 {
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.3;
+  }
+  .modal-close {
+    background: rgba(255,255,255,0.12);
+    color: var(--bg);
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.25); }
+  .detail-body { padding: 36px; }
+  .detail-section { margin-bottom: 32px; }
+  .detail-section:last-child { margin-bottom: 0; }
+  .detail-section h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-section h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink-1);
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+  }
+  .detail-section h5 .step-no {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--ink-1);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+  }
+  .detail-section p {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+  .detail-section p + p { margin-top: 12px; }
+  .detail-section p strong { font-weight: 700; color: var(--ink-1); }
+  .detail-section.exec-block { margin-bottom: 20px; }
+  .detail-result-box {
+    background: var(--bg-soft);
+    border-left: 3px solid var(--ink-1);
+    padding: 20px 24px;
+    margin-top: 24px;
+    border-radius: 0 4px 4px 0;
+  }
+  .detail-result-box .big {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--ink-1);
+    margin-bottom: 4px;
+  }
+  .detail-result-box .desc {
+    font-size: 14px;
+    color: var(--ink-3);
+  }
 
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .sk-group { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px 24px; }
-    .sk-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .sk-list { display: flex; flex-direction: column; gap: 9px; }
-    .sk-item { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: var(--text-2); }
-    .sk-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--charcoal); flex-shrink: 0; }
+  /* System logic visual */
+  .syslogic {
+    margin-top: 20px;
+    border: 1px solid var(--ink-1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .syslogic-title {
+    background: var(--ink-1);
+    color: var(--bg);
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .syslogic-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 16px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .syslogic-row:last-child { border-bottom: none; }
+  .syslogic-state {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--ink-3);
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    text-transform: uppercase;
+  }
+  .syslogic-row.match .syslogic-state { color: var(--ink-1); }
+  .syslogic-msg {
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .syslogic-row.match .syslogic-msg { color: var(--ink-1); font-weight: 700; }
+  .syslogic-row.before { background: var(--bg-soft); }
+  .syslogic-row.before .syslogic-msg::before {
+    content: "AS-IS";
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    background: var(--ink-4);
+    color: var(--bg);
+    padding: 2px 6px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .syslogic-row.before .syslogic-msg { color: var(--ink-3); }
+  @media (max-width: 720px) {
+    .detail-body { padding: 24px 22px; }
+    .detail-head { padding: 22px 22px; grid-template-columns: 1fr; gap: 10px; }
+    .detail-head-no { padding-right: 0; border-right: none; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .syslogic-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 14px; }
+  }
 
-    /* FOOTER */
-    footer { padding: 60px 0; border-top: 1px solid var(--border); }
-    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .footer-name { font-size: 22px; font-weight: 800; color: var(--charcoal); letter-spacing: -0.03em; margin-bottom: 4px; }
-    .footer-sub { font-size: 14px; color: var(--text-3); }
+  /* ===== JD MATCH ===== */
+  .jd-list {
+    display: grid;
+    gap: 12px;
+  }
+  .jd-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .jd-card-head {
+    background: var(--bg-soft);
+    padding: 20px 28px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .jd-no {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+  .jd-card-head h3 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.5;
+  }
+  .jd-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .jd-tag {
+    font-size: 12px;
+    color: var(--ink-2);
+    padding: 4px 10px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .jd-body {
+    padding: 24px 28px 28px;
+  }
+  .jd-body .my-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .jd-body h4 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .jd-body p {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.75;
+  }
+  .jd-body p + p { margin-top: 10px; }
+  .jd-body strong { font-weight: 700; color: var(--ink-1); }
+  @media (max-width: 720px) {
+    .jd-card-head { grid-template-columns: 1fr; gap: 6px; padding: 16px 22px; }
+    .jd-tags { padding: 14px 22px; }
+    .jd-body { padding: 20px 22px 22px; }
+  }
 
-    /* FADE IN */
-    .fi { opacity: 0; transform: translateY(20px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
-    .fi.show { opacity: 1; transform: none; }
-    .fi:nth-child(2) { transition-delay: 0.08s; }
-    .fi:nth-child(3) { transition-delay: 0.16s; }
-    .fi:nth-child(4) { transition-delay: 0.24s; }
+  /* ===== SKILLS ===== */
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink-1);
+    border-bottom: 1px solid var(--ink-1);
+  }
+  .skills-cell {
+    padding: 32px 28px;
+    border-right: 1px solid var(--border);
+  }
+  .skills-cell:last-child { border-right: none; }
+  .skills-cell h3 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ink-1);
+  }
+  .skills-cell ul li {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skills-cell ul li:last-child { border-bottom: none; }
+  @media (max-width: 900px) {
+    .skills { grid-template-columns: 1fr; }
+    .skills-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    .skills-cell:last-child { border-bottom: none; }
+  }
 
-    @media (max-width: 800px) {
-      .about-grid { grid-template-columns: 1fr; gap: 36px; }
-      .metrics-grid { grid-template-columns: repeat(2,1fr); }
-      .cases-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 500px) {
-      .metrics-grid { grid-template-columns: 1fr 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .hero-cta { flex-direction: column; }
-      .btn { justify-content: center; }
-      .sec { padding: 56px 0; }
-    }
-  
-    /* ===== PRINT (PDF 출력 전용) ===== */
-    @media print {
-      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      header { position: static !important; background: #fff !important; backdrop-filter: none !important; }
-      .fi { opacity: 1 !important; transform: none !important; }
-      .modal-overlay { display: block !important; position: static !important; background: none !important; backdrop-filter: none !important; padding: 0 !important; page-break-before: always; break-before: page; }
-      .modal { max-width: 100% !important; max-height: none !important; width: 100% !important; box-shadow: none !important; border: 1px solid #ddd !important; animation: none !important; overflow: visible !important; margin: 16px 0 !important; }
-      .modal-head { position: static !important; }
-      .modal-close { display: none !important; }
-      section, .case-card, .modal, .kpi-card, .jd-block { page-break-inside: avoid; break-inside: avoid; }
-      nav, .hero-cta, .btn { display: none !important; }
-      body { color: #000 !important; font-size: 11pt; line-height: 1.5; }
-      @page { size: A4; margin: 12mm 14mm; }
-      a[href]::after { content: none !important; }
-    }
-  </style>
+  /* ===== CONTACT ===== */
+  .contact-section { background: var(--ink-1); color: var(--bg); border-top: none; }
+  .contact-section .eyebrow { color: var(--ink-5); }
+  .contact-section h2 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 22px;
+  }
+  .contact-section .sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 36px;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+  .contact-info {
+    display: grid; gap: 12px;
+    margin-bottom: 32px;
+  }
+  .contact-info-row {
+    display: flex; align-items: center; gap: 18px;
+    font-size: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    max-width: 560px;
+  }
+  .contact-info-row .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.5);
+    min-width: 70px;
+  }
+  .contact-info-row a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--bg);
+    color: var(--ink-1);
+    padding: 14px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: opacity 0.15s;
+  }
+  .contact-btn:hover { opacity: 0.85; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink-1);
+    color: rgba(255,255,255,0.4);
+    padding: 28px 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 13px;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+</style>
 </head>
 <body>
 
-<header id="hd">
-  <div class="h-inner">
-    <a href="#" class="logo">오희은</a>
-    <nav id="nav">
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">오희은</a>
+    <nav class="nav-links">
       <a href="#about">소개</a>
+      <a href="#results">주요 성과</a>
       <a href="#cases">케이스 스터디</a>
       <a href="#jd">요건 매칭</a>
       <a href="#contact">연락하기</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      Customer Experience · Product Feedback · B2B SaaS
-    </div>
-    <h1 class="hero-name">오희은</h1>
-    <p class="hero-role">플렉스(flex) · Customer Experience Manager 지원</p>
-    <div class="hero-tagline">
-      <p>
-        같은 문의가 반복되면, 저는 처리하기 전에 원인부터 봅니다.<br>
-        VOC 패턴에서 UX 구조 문제를 재정의해 <strong>CTO에게 직접 제안했고, 당일 구현까지 이끌었습니다.</strong><br>
-        그 결과 반복 CS 인입은 <strong>0건</strong>으로 줄었습니다.<br><br>
-        플렉스에서도 그 방식 그대로 씁니다.
-      </p>
-    </div>
+<!-- HERO -->
+<section class="hero" id="top" style="border-top: none;">
+  <div class="container">
+    <div class="hero-keywords">Customer Experience · Product Feedback · B2B SaaS</div>
+    <p class="hero-name-label">오희은 · 플렉스(flex) Customer Experience Manager 지원</p>
+    <h1>친절은 말투가 아니라,<br><span class="hero-h1-em">구조</span>입니다.</h1>
+    <p class="hero-lead">
+      같은 문의가 반복되면, 저는 처리하기 전에 원인부터 봅니다.<br>
+      VOC 패턴에서 UX 구조 문제를 재정의해 개발팀에 직접 제안했고, 당일 구현까지 이끌었습니다.<br>
+      그 결과 반복 CS 인입은 0건 수준으로 줄었습니다.<br><br>
+      <strong>플렉스에서도 그 방식 그대로 씁니다.</strong>
+    </p>
     <div class="hero-cta">
-      <a href="#cases" class="btn btn-dark">
-        케이스 스터디 보기
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#jd" class="btn btn-outline">
-        요건 매칭 확인하기
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+      <a href="#cases" class="btn btn-primary">케이스 스터디 보기 →</a>
+      <a href="#jd" class="btn btn-secondary">요건 매칭 확인하기</a>
     </div>
   </div>
 </section>
 
-<div class="wrap"><div class="hr"></div></div>
-
-<!-- ══ ABOUT ══ -->
-<section class="sec" id="about">
-  <div class="wrap">
-    <p class="sec-eyebrow">About</p>
-    <h2 class="sec-title">고객의 문제를 제품의 기회로 바꾸는 사람,<br>모르는 도메인을 고객 언어로 번역하는 사람</h2>
-    <div class="about-grid">
-      <div>
-        <div class="about-text fi">
-          <p>
-            플렉스의 CX는 단순 CS가 아니라고 생각합니다. 고객사의 인사 제도와 운영 기준이 플렉스라는 제품 안에서 안정적으로 작동하도록 돕는 일에 가깝다고 보았습니다. 저는 <strong>고객의 반복 문의에서 패턴을 읽고, 그것을 제품·운영 개선 과제로 바꾸는 방식</strong>으로 일해왔습니다.
-          </p>
-          <p>
-            프로모션 오인 VOC 173건을 전수 분류해 82%가 동일 구조 원인임을 데이터로 확인했고, 이를 바탕으로 운영 기준을 수립했습니다. 배송 VOC 패턴에서는 UX 구조 문제를 재정의해 CTO에게 직접 제안했고, 당일 구현까지 이끌었습니다. 그 결과 반복 CS 인입은 <strong>0건</strong>으로 줄었습니다.
-          </p>
-          <p>
-            HR·노무 도메인이 처음이라는 것을 알고 있습니다. 하지만 저는 새로운 도메인 앞에서 멈추지 않습니다. 택배 표준약관과 물류 계약서도 처음이었지만, Claude로 쟁점을 정리하고 NotebookLM으로 원문을 교차 확인해 정산·배상 판단 근거를 만들었습니다. CS 판단 기준이 없던 환경에서는 처리 기준과 에스컬레이션 구조를 직접 설계해 경영진 보고 후 전사 기준으로 확정했습니다.
-          </p>
-          <p>
-            <strong>어려운 지식을 빠르게 파악해 고객이 이해할 수 있는 언어로 바꾸는 것.</strong> 그것이 제가 새로운 도메인에 들어가는 방식입니다.
-          </p>
-          <p>
-            AI 도구도 단순 보조 수단이 아니라 실무 파트너로 활용해왔습니다. 비개발 직군 중 유일하게 AI 업무비를 공식 승인받았고, Chrome Extension을 직접 구현해 반복 업무 동선을 8단계에서 2단계로 줄였습니다. 플렉스에서도 AI를 실제 CX 운영 개선에 붙여본 사람으로 기여하고 싶습니다.
-          </p>
-        </div>
-        <div class="about-chips fi">
-          <span class="chip">B2B 고객 성공 · 리텐션</span>
-          <span class="chip">VOC → Product Feedback</span>
-          <span class="chip">도메인 지식 번역</span>
-          <span class="chip">AI Native 실무 활용</span>
-          <span class="chip">Knowledge Base 구축</span>
-          <span class="chip">데이터 기반 문제 해결</span>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="eyebrow">About</div>
+    <h2 class="section-title">고객의 문제를 제품의 기회로 바꾸는 사람,<br>모르는 도메인을 고객 언어로 번역하는 사람.</h2>
+    <div class="about-body">
+      <p>플렉스의 CX는 단순 CS가 아니라고 생각합니다. <strong>고객사의 인사 제도와 운영 기준이 플렉스라는 제품 안에서 안정적으로 작동하도록 돕는 일</strong>에 가깝다고 보았습니다. 저는 고객의 반복 문의에서 패턴을 읽고, 그것을 제품·운영 개선 과제로 바꾸는 방식으로 일해왔습니다.</p>
+      <p>배송 VOC 패턴에서는 <strong>UX 구조 문제를 재정의해 개발팀에 직접 제안했고, 당일 구현까지 이끌었습니다.</strong> 그 결과 반복 CS 인입은 0건 수준으로 줄었습니다. 자유 텍스트에 묻혀 있던 환불·교환 의도는 필수 선택값으로 구조화해, AS 재확인 왕복을 95% 이상 줄였습니다.</p>
+      <p>HR·노무 도메인이 처음이라는 것을 알고 있습니다. 하지만 저는 새로운 도메인 앞에서 멈추지 않습니다. 택배 표준약관과 물류 계약서도 처음이었지만, <strong>Claude로 쟁점을 정리하고 NotebookLM으로 원문을 교차 확인해 정산·배상 판단 근거를 만들었습니다.</strong> CS 판단 기준이 없던 환경에서는 처리 기준과 에스컬레이션 구조를 직접 설계해 유관 리더와 협의를 거쳐 공통 운영 기준으로 정리했습니다.</p>
+      <p><strong>어려운 지식을 빠르게 파악해 고객이 이해할 수 있는 언어로 바꾸는 것.</strong> 그것이 제가 새로운 도메인에 들어가는 방식입니다.</p>
+      <p>AI 도구도 단순 보조 수단이 아니라 실무 파트너로 활용해왔습니다. <strong>비개발 직군에서도 AI 업무비를 공식 승인받았고</strong>, Chrome Extension을 직접 구현해 반복 업무 동선을 7단계에서 1단계로 줄였습니다. 플렉스에서도 AI를 실제 CX 운영 개선에 붙여본 사람으로 기여하고 싶습니다.</p>
+    </div>
+    <div class="keyword-tags">
+      <span class="keyword-tag">B2B 고객 성공 · 리텐션</span>
+      <span class="keyword-tag">VOC → Product Feedback</span>
+      <span class="keyword-tag">도메인 지식 번역</span>
+      <span class="keyword-tag">AI Native 실무 활용</span>
+      <span class="keyword-tag">Knowledge Base 구축</span>
+      <span class="keyword-tag">데이터 기반 문제 해결</span>
+    </div>
+    <div class="mindset">
+      <div class="mindset-cell">
+        <h3>VOC → Product 피드백 루프</h3>
+        <p>CS 문의를 건별로 처리하지 않습니다. 반복 패턴을 구조화해 발생 시점과 원인을 데이터로 확인하고, 개발·기획팀이 바로 검토할 수 있는 개선 과제로 전환합니다. 플렉스 CX가 제품 성장판이 되는 방식입니다.</p>
       </div>
-      <div class="about-sidebar">
-        <div class="sidebar-card fi">
-          <div class="sidebar-card-top">
-            <div class="sidebar-icon accent">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10.5L5 7L7.5 9.5L10 6L12 8" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11.5" cy="3.5" r="1.5" fill="white"/></svg>
+      <div class="mindset-cell">
+        <h3>도메인을 고객 언어로 번역하기</h3>
+        <p>물류 계약서, CS 판단 기준, 배상 정산 구조. 모두 처음 접하는 영역이었지만 Claude 해석 + NotebookLM 원문 교차 검증으로 법적 정확도를 확보하며 직접 만들었습니다. 근로기준법·취업규칙·급여 정산도 같은 방식으로 접근합니다.</p>
+      </div>
+      <div class="mindset-cell">
+        <h3>기준이 없으면 직접 만든다</h3>
+        <p>SLA 기준, CS 판단 가이드, 운영 표준, 지식 베이스처럼 비어 있는 기준을 직접 설계해왔습니다. 데이터로 근거를 만들고, 유관 리더 협의를 거쳐 공통 운영 기준으로 정리했습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY RESULTS -->
+<section id="results">
+  <div class="container">
+    <div class="eyebrow">Key Results</div>
+    <h2 class="section-title">숫자로 증명한 성과</h2>
+    <div class="results">
+      <div class="result-cell">
+        <div class="result-n">0건 수준</div>
+        <div class="result-l">반복 문의 0건 수준 개선</div>
+        <div class="result-d">일 6~10건 → 0건 수준<br>VOC 분석 → 개발팀 제안 → 당일 구현</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">95%+</div>
+        <div class="result-l">AS 재확인 왕복 감소</div>
+        <div class="result-d">자유 텍스트 → 필수 선택값 구조화<br>고객 의도 기반 입력 구조 재설계</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">7→1단계</div>
+        <div class="result-l">AI 기반 CS 자동화</div>
+        <div class="result-d">Chrome Extension 직접 구현<br>AI 업무비 공식 승인 · 1,151건 처리</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">14.7배</div>
+        <div class="result-l">배상 회수율 개선</div>
+        <div class="result-d">계약·약관 원문 교차 확인<br>책임 기준·비용 판단 근거 정리</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="cases">
+  <div class="container">
+    <div class="eyebrow">Case Study</div>
+    <h2 class="section-title">실제로 해결한 문제들</h2>
+    <div class="case-list">
+
+      <!-- CASE 1 CARD -->
+      <a href="javascript:void(0)" class="case-card" data-modal="case1">
+        <div class="case-tags">
+          <span class="case-tag">배송 제약 VOC → UX 개선</span>
+          <span class="case-tag">MVP 직접 설계</span>
+          <span class="case-tag">사내 표준으로 전파</span>
+        </div>
+        <h3>배송 제약 VOC를 UX 개선 스펙으로 전환 — 개발팀 제안·당일 구현·반복 문의 0건 수준</h3>
+        <p class="case-desc">배송 제약 상품이 장바구니에서 일반 품절로 표시되어 문의가 일 6~10건 반복됐습니다. 단순 보고가 아니라 "장바구니 상품 옆에 문구만 다르게 표시하는 MVP가 가능할까요?" — UX 솔루션 방향과 예시 문구까지 직접 설계해 개발팀에 제안했고, 당일 구현됐습니다.</p>
+        <div class="case-meta">
+          <span class="case-result">일 6~10건 → 0건 수준</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </a>
+
+      <!-- CASE 2 CARD -->
+      <a href="javascript:void(0)" class="case-card" data-modal="case2">
+        <div class="case-tags">
+          <span class="case-tag">고객 직접 응대</span>
+          <span class="case-tag">B2B 고객 성공</span>
+          <span class="case-tag">Knowledge Base</span>
+        </div>
+        <h3>고객 직접 응대 · 400여 개 제휴사 운영 기준 재정비 · Knowledge Base 구축</h3>
+        <p class="case-desc">예약·변경·취소 기준이 제휴 골프장마다 달라 상담 기준이 흔들렸습니다. 400여 개 제휴 골프장의 위약·취소·동반자 변경 기준을 전수 정리하고, 반복 문의 패턴을 기준화해 상담자가 동일 기준으로 판단할 수 있는 Knowledge Base 구조를 만들었습니다.</p>
+        <div class="case-meta">
+          <span class="case-result">400+ 제휴사 운영 기준 표준화</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </a>
+
+      <!-- CASE 3 CARD -->
+      <a href="javascript:void(0)" class="case-card" data-modal="case3">
+        <div class="case-tags">
+          <span class="case-tag">도메인 지식 번역</span>
+          <span class="case-tag">계약 분석</span>
+          <span class="case-tag">B2B 파트너 협상</span>
+        </div>
+        <h3>AI로 계약·약관 쟁점 정리 → 원문 교차 확인 · 배상회수율 14.7배 개선</h3>
+        <p class="case-desc">택배 표준약관과 물류 계약서를 처음부터 다시 확인해, 외부 파트너 배상 구조를 재정의했습니다. Claude로 계약 쟁점을 정리하고 NotebookLM으로 원문 근거를 교차 확인해, 숨겨져 있던 선공제 조항을 근거로 피해 기준과 정산 체계를 직접 설계했습니다.</p>
+        <div class="case-meta">
+          <span class="case-result">배상 회수율 14.7배</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </a>
+
+      <!-- CASE 4 CARD -->
+      <a href="javascript:void(0)" class="case-card" data-modal="case4">
+        <div class="case-tags">
+          <span class="case-tag">AI 기반 CX 자동화</span>
+          <span class="case-tag">Chrome Extension 직접 구현</span>
+          <span class="case-tag">기준값 오류 감소</span>
+        </div>
+        <h3>생성형 AI로 반복 CS 업무 7→1단계 축소 — AI 업무비 공식 승인</h3>
+        <p class="case-desc">반복 입력과 기준값 오류가 누적되던 CS 처리 흐름을 Chrome Extension으로 직접 자동화했습니다. Claude를 활용해 로직을 설계·수정하고, 반복 CS 프로세스를 7단계에서 1단계로 줄였습니다. 자동화 범위는 반복 입력에 한정하고, 리스크 있는 구간은 사람이 검수하도록 남겼습니다.</p>
+        <div class="case-meta">
+          <span class="case-result">7→1단계 · 1,151건 처리</span>
+          <span class="case-more">자세히 보기 →</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============== CASE MODALS ============== -->
+<div class="modal-backdrop" id="modalBackdrop">
+
+    <!-- CASE 1 DETAIL -->
+    <div class="case-detail" id="case1">
+      <div class="detail-head">
+        <span class="detail-head-no">Case 01</span>
+        <h3>배송 제약 VOC를 UX 스펙으로 전환 — 개발팀 제안·당일 구현</h3>
+        <button class="modal-close" aria-label="닫기">✕</button>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section">
+          <h4>문제 상황</h4>
+          <p>배송 제약 상품(특정 요일에만 도착)이 장바구니에서 <strong>일반 품절 상품과 동일하게 표시</strong>되고 있었습니다. 고객은 "왜 주문이 안 되냐"는 문의를 일 6~10건 반복했고, CS팀은 매번 같은 설명을 했습니다.</p>
+          <p>단순 안내 추가로 해결되는 문제가 아니었습니다. <strong>품절과 배송일 제약을 시각적으로 구분하지 못하는 UX 구조 자체가 원인</strong>이었습니다.</p>
+        </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">01</span> VOC 패턴에서 UX 구조 문제 재정의</h5>
+          <p>건별 응대가 아니라 반복 패턴을 분석해 <strong>이건 CS 응대 문제가 아니라 장바구니 UX 구조 문제</strong>라고 재정의했습니다. 시스템에서 품절과 배송일 제약을 구분 가능한지부터 개발 담당자에게 확인했습니다.</p>
+        </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">02</span> MVP 스펙·예시 문구까지 직접 설계</h5>
+          <p>단순 보고가 아니라, <strong>구체적인 UX 솔루션 방향과 예시 문구까지 직접 작성</strong>해서 개발팀에 제안했습니다.</p>
+          <div class="syslogic">
+            <div class="syslogic-title">→ Direct Proposal to Dev Team</div>
+            <div class="syslogic-row match">
+              <span class="syslogic-state">제안</span>
+              <span class="syslogic-msg">"시스템에서 품절과 배송일 제약을 구분할 수 있다면, 장바구니 상품 옆에 문구만 다르게 표시하는 MVP가 가능할까요?"</span>
             </div>
-            <span class="sidebar-card-label">VOC → Product 피드백 루프</span>
           </div>
-          <p class="sidebar-card-desc">CS 문의를 건별로 처리하지 않습니다. 반복 패턴을 전수 분류해 구조적 원인을 데이터로 확인하고, 개발·기획팀이 바로 검토할 수 있는 개선 과제로 전환합니다. 플렉스 CX가 제품 성장판이 되는 방식입니다.</p>
         </div>
-        <div class="sidebar-card fi">
-          <div class="sidebar-card-top">
-            <div class="sidebar-icon">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2C4.24 2 2 4.24 2 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" stroke="white" stroke-width="1.4"/><path d="M7 5v2.5l1.5 1.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </div>
-            <span class="sidebar-card-label">도메인을 고객 언어로 번역하기</span>
-          </div>
-          <p class="sidebar-card-desc">물류 계약서, CS 판단 기준, 배상 정산 구조. 모두 처음 접하는 영역이었지만 Claude 해석 + NotebookLM 원문 교차 검증으로 법적 정확도를 확보하며 직접 만들었습니다. 근로기준법·취업규칙·급여 정산도 같은 방식으로 접근합니다.</p>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">03</span> 제안 즉시 수용 → 당일 구현 → 유사 케이스로 확장</h5>
+          <p>제안은 즉시 수용되어 <strong>당일 구현</strong>됐습니다. 관련 문의는 0건 수준이 됐습니다. 이 subtext 구조는 이후 <strong>유사한 안내 케이스에도 적용 가능한 기준으로 확장</strong>됐습니다.</p>
         </div>
-        <div class="sidebar-card fi">
-          <div class="sidebar-card-top">
-            <div class="sidebar-icon">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="white" stroke-width="1.4"/><path d="M5 7h4M7 5v4" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
-            </div>
-            <span class="sidebar-card-label">기준이 없으면 직접 만든다</span>
-          </div>
-          <p class="sidebar-card-desc">SLA 기준, CS 판단 가이드, 운영 표준, 지식 베이스처럼 비어 있는 기준을 직접 설계해왔습니다. 데이터로 근거를 만들고, 경영진 보고를 통해 전사 기준으로 확정했습니다.</p>
+
+        <div class="detail-result-box">
+          <div class="big">일 6~10건 → 0건 수준 · 유사 케이스로 확장 적용</div>
+          <div class="desc">UX 스펙 직접 설계 → 개발팀 수용 → 당일 구현 → 유사 안내 케이스로 확장. CS 영역을 넘어 Product 사고로 제품 개선에 직접 기여한 사례.</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<div class="wrap"><div class="hr"></div></div>
+    <!-- CASE 2 DETAIL -->
+    <div class="case-detail" id="case2">
+      <div class="detail-head">
+        <span class="detail-head-no">Case 02</span>
+        <h3>고객 직접 응대 · 400여 개 제휴사 운영 기준 재정비 · Knowledge Base 구축</h3>
+        <button class="modal-close" aria-label="닫기">✕</button>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section">
+          <h4>문제 상황</h4>
+          <p>예약·변경·취소 기준이 <strong>제휴 골프장마다 달라</strong> 동일 유형 문의에도 상담 기준이 흔들렸습니다. 같은 케이스를 두 사람이 다르게 응대하는 일이 반복됐고, 파트너와의 컴플레인도 구조적으로 발생했습니다.</p>
+          <p>가장 큰 문제는 <strong>파트너 본인도 정책을 깔끔하게 정리해두지 않은 경우가 많아</strong>, CS팀과 파트너 양쪽 모두 같은 문의에 시간을 쓰고 있었다는 점입니다.</p>
+        </div>
 
-<!-- ══ METRICS ══ -->
-<section class="sec sec-alt">
-  <div class="wrap">
-    <p class="sec-eyebrow">Key Results</p>
-    <h2 class="sec-title">숫자로 증명한 성과</h2>
-    <div class="metrics-grid">
-      <div class="m-card fi">
-        <div class="m-number">0건</div>
-        <div class="m-label">반복 문의 0건 개선</div>
-        <div class="m-sub">일 6~10건 → 0건<br>VOC 분석 → CTO 직접 제안 → 당일 구현</div>
-      </div>
-      <div class="m-card fi">
-        <div class="m-number">173건</div>
-        <div class="m-label">VOC 전수 분류·분석</div>
-        <div class="m-sub">82% 동일 원인 규명<br>Product Feedback으로 전환·실행</div>
-      </div>
-      <div class="m-card fi">
-        <div class="m-number">8→2단계</div>
-        <div class="m-label">AI 기반 CS 자동화</div>
-        <div class="m-sub">Chrome Extension 직접 구현<br>비개발 유일 AI 업무비 공식 승인</div>
-      </div>
-      <div class="m-card fi">
-        <div class="m-number">14.7배</div>
-        <div class="m-label">배상 회수율 개선</div>
-        <div class="m-sub">계약·약관 원문 교차 확인<br>책임 기준·비용 판단 근거 정리</div>
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">01</span> 고객 직접 응대 + 400곳 정책 전수 정리</h5>
+          <p>플랫폼으로 접수된 예약·변경·취소·위약 문의를 어드민에서 직접 처리하면서, 동시에 <strong>400여 개 제휴 골프장의 위약·취소·동반자 변경 기준을 전수 정리</strong>했습니다. 흩어져 있던 정책을 표준 기준으로 통일했습니다.</p>
+        </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">02</span> 반복 문의 패턴 기준화 · 단일 판단 체계 수립</h5>
+          <p>VOC 분석을 기반으로 반복 문의 패턴을 기준화했습니다. 어느 골프장 문의가 들어와도 <strong>상담자가 동일한 기준으로 판단할 수 있는 단일 판단 체계</strong>를 만들었습니다.</p>
+        </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">03</span> Knowledge Base 구조 + 신규 인력 온보딩 가이드</h5>
+          <p>표준화된 정책을 <strong>Knowledge Base 구조로 정리</strong>해 파트너가 직접 참조할 수 있도록 했고, 신규 인력도 동일 기준으로 응대할 수 있는 온보딩 가이드까지 함께 정비했습니다. 담당자 교체에도 응대 품질이 유지되는 구조를 확립했습니다.</p>
+        </div>
+
+        <div class="detail-result-box">
+          <div class="big">400+ 제휴사 운영 기준 표준화 · 자기해결률 향상</div>
+          <div class="desc">flex가 말하는 'Customer Enablement'와 동일한 사고. 복잡한 정책을 표준화하고, 고객(파트너)이 우리에게 묻기 전에 스스로 해결하는 환경을 설계하는 일.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<div class="wrap"><div class="hr"></div></div>
+    <!-- CASE 3 DETAIL -->
+    <div class="case-detail" id="case3">
+      <div class="detail-head">
+        <span class="detail-head-no">Case 03</span>
+        <h3>AI로 계약·약관 쟁점 정리 → 원문 교차 확인 · 배상 회수율 14.7배</h3>
+        <button class="modal-close" aria-label="닫기">✕</button>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section">
+          <h4>문제 상황</h4>
+          <p>택배사와 물류 파트너 귀책으로 발생한 사고·손실 이슈에 대해, 접수·증빙·보상·정산 기준이 명확히 분리되지 않은 상태였습니다. 배상은 <strong>파트너 관행에 따라 제한적으로</strong> 처리됐고, 어떤 기준으로 증빙을 남기고 어떤 항목을 청구할 수 있는지 정리된 적이 없어 손실이 누적되고 있었습니다.</p>
+          <p>법·계약 영역은 <strong>제가 처음 접하는 도메인</strong>이었습니다. 하지만 멈추지 않았습니다.</p>
+        </div>
 
-<!-- ══ CASES ══ -->
-<section class="sec" id="cases">
-  <div class="wrap">
-    <p class="sec-eyebrow">Case Study</p>
-    <h2 class="sec-title">실제로 해결한 문제들</h2>
-    <div class="cases-grid">
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">01</span> Claude로 계약 쟁점 정리</h5>
+          <p>택배 표준약관과 물류 계약서를 Claude로 구조 해석하고, 책임 구간·송하인 통보 의무·접수 기준 등 <strong>쟁점을 항목별로 정리</strong>했습니다. 흩어져 있던 약관 조항을 운영자가 이해할 수 있는 언어로 재구성했습니다.</p>
+        </div>
 
-      <!-- Case 1: VOC → Product Feedback -->
-      <a class="c-card fi" href="javascript:void(0)" data-modal="modal1">
-        <div class="c-tags">
-          <span class="c-tag accent">배송 제약 VOC → UX 개선</span>
-          <span class="c-tag">MVP 직접 설계</span>
-          <span class="c-tag">사내 표준으로 전파</span>
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">02</span> NotebookLM으로 원문 교차 확인</h5>
+          <p>Claude가 정리한 쟁점을 그대로 믿지 않고, <strong>NotebookLM으로 원문을 검색·인용해 교차 검증</strong>했습니다. "이 조항이 실제로 존재하는가"를 이중 확인하는 워크플로우입니다. <strong>AI 한 곳만 믿지 않습니다.</strong></p>
         </div>
-        <h3 class="c-title">배송 제약 VOC를 UX 개선 스펙으로 전환 — CTO 제안·당일 구현·반복 문의 0건</h3>
-        <p class="c-desc">배송 제약 상품(특정 요일 도착)이 장바구니에서 일반 품절로 표시되어 고객 문의가 일 6~10건 반복됐습니다. 단순 보고가 아니라 <strong>"시스템에서 품절과 배송일 제약을 구분할 수 있다면, 장바구니 상품 옆에 문구만 다르게 표시하는 MVP가 가능할까요?"</strong> — UX 솔루션 방향과 구체적인 예시 문구까지 직접 설계해 CTO에게 제안했습니다. CTO가 즉시 수용해 개발팀에 지시, 당일 구현됐고 반복 문의는 0건이 됐습니다. 이 subtext 구조는 이후 상품운영팀이 프로모션 안내에도 자체 확대 적용, 단일 제안이 사내 개선 표준으로 전파됐습니다.</p>
-        <div class="c-bottom">
-          <div class="c-metric">
-            <span class="c-metric-val">일 6~10건→0건</span>
-            <span class="c-metric-lab">UX 스펙 직접 설계 → CTO 수용 → 당일 구현 → 프로모션까지 확산</span>
-          </div>
-          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </div>
-      </a>
 
-      <!-- Case 2: B2B 파트너 운영 -->
-      <a class="c-card fi" href="javascript:void(0)" data-modal="modal2">
-        <div class="c-tags">
-          <span class="c-tag accent">고객 직접 응대</span>
-          <span class="c-tag">B2B 고객 성공</span>
-          <span class="c-tag">Knowledge Base</span>
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">03</span> 선공제 조항 확인 → 유관 리더 협의·공통 기준 정리</h5>
+          <p>물류 계약서를 다시 검토하는 과정에서 <strong>기존 운영에서 활용되지 않던 선공제 조항을 확인</strong>했습니다. 사고 유형별 책임 구간과 정산 기준을 직접 설계하고, <strong>유관 리더 보고·협의를 거쳐 공통 정산 기준으로 정리</strong>했습니다.</p>
         </div>
-        <h3 class="c-title">고객 직접 응대(예약·변경·취소) · 400여 개 제휴사 운영 기준 재정비 · Knowledge Base 구축</h3>
-        <p class="c-desc">예약·변경·취소 기준이 제휴 골프장마다 달라 동일 유형 문의에도 상담 기준이 흔들렸습니다. 400여 개 제휴 골프장의 위약·취소·동반자 변경 기준을 전수 정리하고, 반복 문의 패턴을 기준화해 상담자가 동일 기준으로 판단할 수 있는 Knowledge Base 구조를 만들었습니다.</p>
-        <div class="c-bottom">
-          <div class="c-metric">
-            <span class="c-metric-val">400+ 제휴사</span>
-            <span class="c-metric-lab">운영 기준 표준화 · 반복 문의 감소 · 상담 판단 기준 체계화</span>
-          </div>
-          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </div>
-      </a>
 
-      <!-- Case 3: 도메인 지식 번역 -->
-      <a class="c-card fi" href="javascript:void(0)" data-modal="modal3">
-        <div class="c-tags">
-          <span class="c-tag accent">도메인 지식 번역</span>
-          <span class="c-tag">계약 분석</span>
-          <span class="c-tag">B2B 파트너 협상</span>
+        <div class="detail-result-box">
+          <div class="big">배상 회수율 14.7배 · 월 1,900만 선공제 구조</div>
+          <div class="desc">원문 교차 확인 → 협상 근거 → 공통 정산 기준 정리. 처음 접하는 법·규정 기반 도메인도 같은 방식으로 학습하고, 고객이 이해할 수 있는 운영 기준으로 바꿔냈습니다. HR·노무도 같은 방법론으로 접근합니다.</div>
         </div>
-        <h3 class="c-title">AI로 계약·약관 쟁점 정리 → 원문 교차 확인 · 배상회수율 14.7배 개선</h3>
-        <p class="c-desc">택배 표준약관과 물류 계약서를 처음부터 다시 확인해, 외부 파트너 배상 구조를 재정의한 사례입니다. Claude로 계약 쟁점을 정리하고, NotebookLM으로 원문 근거를 교차 확인해 실제 청구 가능한 책임 구간을 찾았습니다. 숨겨져 있던 선공제 조항을 근거로 피해 기준과 정산 체계를 직접 설계했고, CEO 보고 후 전사 기준으로 확정했습니다. 처음 접하는 법·규정 기반 도메인도 같은 방식으로 학습하고, 고객이 이해할 수 있는 운영 기준으로 바꾸겠습니다.</p>
-        <div class="c-bottom">
-          <div class="c-metric">
-            <span class="c-metric-val">배상회수율 14.7배</span>
-            <span class="c-metric-lab">원문 교차 확인 → 협상 근거 → 월 1,900만 선공제 구조 확보</span>
-          </div>
-          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </div>
-      </a>
-
-      <!-- Case 4: AI 기반 자동화 -->
-      <a class="c-card fi" href="javascript:void(0)" data-modal="modal4">
-        <div class="c-tags">
-          <span class="c-tag accent">AI 기반 CX 자동화</span>
-          <span class="c-tag">Chrome Extension 직접 구현</span>
-          <span class="c-tag">기준값 오류 감소</span>
-        </div>
-        <h3 class="c-title">생성형 AI로 반복 CS 업무 8단계→2단계 축소 — 비개발 직군 유일 AI 업무비 공식 승인</h3>
-        <p class="c-desc">반복 입력과 기준값 오류가 누적되던 CS 처리 흐름을 Chrome Extension으로 직접 자동화했습니다. Claude를 활용해 로직을 설계·수정하고, 반복 CS 프로세스를 8단계에서 2단계로 줄였습니다. 자동화 범위는 반복 입력에 한정하고, 귀책 판단·최종 등록처럼 리스크가 있는 구간은 사람이 검수하도록 남겼습니다. 이 실무 활용성을 인정받아 비개발 직군 중 유일하게 AI 업무비를 공식 승인받았습니다.</p>
-        <div class="c-bottom">
-          <div class="c-metric">
-            <span class="c-metric-val">8→2단계</span>
-            <span class="c-metric-lab">1,151건 단독 처리 · 기준값 오류 감소 · 비개발 직군 유일 AI 업무비 승인</span>
-          </div>
-          <div class="c-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </div>
-      </a>
-
+      </div>
     </div>
-  </div>
-</section>
 
-<div class="wrap"><div class="hr"></div></div>
-
-<!-- ══ JD MATCH ══ -->
-<section class="sec sec-alt" id="jd">
-  <div class="wrap">
-    <p class="sec-eyebrow">JD Match</p>
-    <h2 class="sec-title">플렉스가 원하는 것과 나의 연결</h2>
-    <div class="jd-grid">
-
-      <div class="jd-item fi">
-        <div class="jd-left">
-          <div class="jd-num">플렉스의 CX 01</div>
-          <div class="jd-req">단순 CS가 아닌 B2B 고객 성공 설계 — 고객사의 인사 제도가 flex 안에서 안정적으로</div>
-          <div class="jd-keyword-row">
-            <span class="jd-kw">Customer Success</span>
-            <span class="jd-kw">B2B SaaS</span>
-            <span class="jd-kw">리텐션</span>
-          </div>
+    <!-- CASE 4 DETAIL -->
+    <div class="case-detail" id="case4">
+      <div class="detail-head">
+        <span class="detail-head-no">Case 04</span>
+        <h3>Chrome Extension 직접 구현 → 반복 CS 업무 7→1단계 · 1,151건 처리</h3>
+        <button class="modal-close" aria-label="닫기">✕</button>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section">
+          <h4>문제 상황</h4>
+          <p>대량 취소·반품·재배송 처리 시 동일 항목을 반복 입력해야 했습니다. 처리 건수가 늘어날수록 입력 피로도와 기준값 오입력 가능성이 커졌고, <strong>귀책대상·처리 사유처럼 후속 정산·집계에 연결되는 값은 한 번 잘못 입력되면 운영 데이터 전체가 왜곡</strong>될 수 있었습니다.</p>
         </div>
-        <div class="jd-right">
-          <div class="jd-match-label">나의 경험</div>
-          <div class="jd-match-title">고객 직접 응대(예약·변경·취소·위약) + 400여 개 제휴사 운영 기준 재정비 + Knowledge Base 구축</div>
-          <div class="jd-match-points">
-            <div class="jd-match-point">플랫폼으로 접수된 예약·변경·취소·위약 문의를 어드민에서 확인하고, 제휴 골프장별 정책 기준에 맞춰 직접 처리했습니다.</div>
-            <div class="jd-match-point">400여 개 제휴 골프장의 예약·취소·위약·동반자 변경 기준을 전수 정리해 상담 판단 기준을 표준화했습니다.</div>
-            <div class="jd-match-point">반복 문의 패턴을 기준화해 Knowledge Base 구조로 정리하고, 신규 인력도 동일 기준으로 응대할 수 있도록 온보딩 기준을 정비했습니다.</div>
-          </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">01</span> Claude로 Chrome Extension 직접 구현</h5>
+          <p>반복적으로 입력되는 필수값과 기준값을 분리하고, Claude를 활용해 Chrome Extension을 직접 구현했습니다. 재배송·반품 등록 시 주요 항목이 단축키 한 번으로 자동 입력되도록 설계해, <strong>기존 7단계였던 반복 처리 동선을 1단계로</strong> 줄였습니다.</p>
+        </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">02</span> 리스크 구간은 사람에게 남김</h5>
+          <p>모든 단계를 자동화하지는 않았습니다. <strong>귀책 판단·예외 케이스 확인·최종 등록·고객 안내에 영향을 주는 구간은 담당자가 직접 확인</strong>하도록 남겼습니다. 자동화의 목적을 단순 속도가 아니라 반복 입력 오류 감소와 기준값 표준화에 두었기 때문입니다.</p>
+        </div>
+
+        <div class="detail-section exec-block">
+          <h5><span class="step-no">03</span> AI 도구 도입 직접 제안 · 업무비 공식 승인</h5>
+          <p>회사 기본 제공 환경 외에도 Claude·GPT 도입 필요성을 직접 기획·제안했고, VOC 분류·자동화 로직 작성·계약 문서 검토·응대 가이드 초안에 목적별로 활용했습니다. 실제 업무 효율화 기여를 인정받아 <strong>비개발 직군에서도 AI 도구 업무비를 공식 승인</strong>받았습니다. Slack API + Apps Script로 <strong>/담당자 슬래시 커맨드 조회 인터페이스</strong>를 구축·배포해, 상품 문의 이관 시 매번 엑셀·시스템을 열던 내부 조회 동선도 단축했습니다.</p>
+        </div>
+
+        <div class="detail-result-box">
+          <div class="big">7→1단계 · 1,151건 처리 · AI 업무비 공식 승인</div>
+          <div class="desc">도구를 쓰려고 한 게 아니라 해결해야 할 문제가 있었기 때문입니다. flex에서도 AI를 실제 CX 운영 개선에 붙여본 사람으로 기여하겠습니다.</div>
+        </div>
+      </div>
+    </div>
+
+</div><!-- /.modal-backdrop -->
+
+<!-- JD MATCH -->
+<section id="jd">
+  <div class="container">
+    <div class="eyebrow">JD Match</div>
+    <h2 class="section-title">플렉스가 원하는 것과 나의 연결</h2>
+    <div class="jd-list">
+
+      <div class="jd-card">
+        <div class="jd-card-head">
+          <span class="jd-no">플렉스의 CX 01</span>
+          <h3>단순 CS가 아닌 B2B 고객 성공 설계 — 고객사의 인사 제도가 flex 안에서 안정적으로</h3>
+        </div>
+        <div class="jd-tags">
+          <span class="jd-tag">Customer Success</span>
+          <span class="jd-tag">B2B SaaS</span>
+          <span class="jd-tag">리텐션</span>
+        </div>
+        <div class="jd-body">
+          <div class="my-label">— 나의 경험</div>
+          <h4>고객 직접 응대(예약·변경·취소·위약) + 400여 개 제휴사 운영 기준 재정비 + Knowledge Base 구축</h4>
+          <p>플랫폼으로 접수된 예약·변경·취소·위약 문의를 어드민에서 확인하고, <strong>제휴 골프장별 정책 기준에 맞춰 직접 처리</strong>했습니다.</p>
+          <p>400여 개 제휴 골프장의 예약·취소·위약·동반자 변경 기준을 전수 정리해 <strong>상담 판단 기준을 표준화</strong>했습니다.</p>
+          <p>반복 문의 패턴을 기준화해 Knowledge Base 구조로 정리하고, 신규 인력도 동일 기준으로 응대할 수 있도록 온보딩 기준을 정비했습니다.</p>
         </div>
       </div>
 
-      <div class="jd-item fi">
-        <div class="jd-left">
-          <div class="jd-num">플렉스의 CX 02</div>
-          <div class="jd-req">VOC → Product Feedback 루프 — 고객 목소리가 제품 업데이트에 직접 반영되는 구조</div>
-          <div class="jd-keyword-row">
-            <span class="jd-kw">VOC 분석</span>
-            <span class="jd-kw">제품 개선 제안</span>
-            <span class="jd-kw">데이터 기반</span>
-          </div>
+      <div class="jd-card">
+        <div class="jd-card-head">
+          <span class="jd-no">플렉스의 CX 02</span>
+          <h3>VOC → Product Feedback 루프 — 고객 목소리가 제품 업데이트에 직접 반영되는 구조</h3>
         </div>
-        <div class="jd-right">
-          <div class="jd-match-label">나의 경험</div>
-          <div class="jd-match-title">배송 제약 UX 스펙 직접 설계 → CTO 제안·당일 구현·반복 문의 0건 / VOC 173건 분석 → 운영 기준 수립</div>
-          <div class="jd-match-points">
-            <div class="jd-match-point">배송 제약 상품 VOC 반복 패턴을 발견하고, 단순 안내가 아니라 장바구니 내 상품별 subtext로 주문 불가 사유를 안내하는 UX 스펙을 직접 설계했습니다.</div>
-            <div class="jd-match-point">CTO에게 MVP 개선안을 제안해 당일 구현까지 이끌었고, 일 6~10건 반복되던 관련 문의를 0건으로 줄였습니다.</div>
-            <div class="jd-match-point">프로모션 오인 VOC 173건을 전수 분류해 82%가 동일 구조 원인임을 확인하고, 운영 기준과 Product Feedback 과제로 전환했습니다.</div>
-          </div>
+        <div class="jd-tags">
+          <span class="jd-tag">VOC 분석</span>
+          <span class="jd-tag">제품 개선 제안</span>
+          <span class="jd-tag">데이터 기반</span>
+        </div>
+        <div class="jd-body">
+          <div class="my-label">— 나의 경험</div>
+          <h4>배송 제약 UX 스펙 직접 설계 → 개발팀 제안·당일 구현·반복 문의 0건 수준 / 환불·교환 입력 구조화 → AS 재확인 왕복 95%+ 감소</h4>
+          <p>배송 제약 상품 VOC 반복 패턴을 발견하고, 단순 안내가 아니라 <strong>장바구니 내 상품별 subtext로 주문 불가 사유를 안내하는 UX 스펙을 직접 설계</strong>했습니다.</p>
+          <p>개발팀에 MVP 개선안을 제안해 당일 구현까지 이끌었고, 일 6~10건 반복되던 관련 문의를 <strong>0건 수준으로</strong> 줄였습니다.</p>
+          <p>자유 텍스트에 묻혀 있던 환불·교환 의도를 <strong>필수 선택값으로 구조화</strong>해 AS 재확인 왕복을 95% 이상 줄이고, 처리 리드타임을 단축했습니다.</p>
         </div>
       </div>
 
-      <div class="jd-item fi">
-        <div class="jd-left">
-          <div class="jd-num">플렉스의 CX 03</div>
-          <div class="jd-req">인사·노무 도메인 지식 — 복잡한 기준을 고객이 이해하는 언어로 번역</div>
-          <div class="jd-keyword-row">
-            <span class="jd-kw">도메인 전문화</span>
-            <span class="jd-kw">지식 번역</span>
-            <span class="jd-kw">Knowledge Base</span>
-          </div>
+      <div class="jd-card">
+        <div class="jd-card-head">
+          <span class="jd-no">플렉스의 CX 03</span>
+          <h3>인사·노무 도메인 지식 — 복잡한 기준을 고객이 이해하는 언어로 번역</h3>
         </div>
-        <div class="jd-right">
-          <div class="jd-match-label">나의 경험</div>
-          <div class="jd-match-title">처음 접한 도메인도 직접 학습해 운영 기준으로 바꿔왔습니다</div>
-          <div class="jd-match-points">
-            <div class="jd-match-point">택배 표준약관과 물류 계약서는 Claude로 쟁점을 정리하고, NotebookLM으로 원문을 교차 확인해 책임 기준과 정산 근거를 정리했습니다.</div>
-            <div class="jd-match-point">CS 판단 기준이 없던 환경에서 처리 기준과 에스컬레이션 구조를 직접 설계하고, 경영진 보고 후 팀 기준으로 확정했습니다.</div>
-            <div class="jd-match-point">HR·노무 도메인도 같은 방식으로 접근하겠습니다. 먼저 기준을 이해하고, 고객이 이해할 수 있는 언어로 번역하겠습니다.</div>
-          </div>
+        <div class="jd-tags">
+          <span class="jd-tag">도메인 전문화</span>
+          <span class="jd-tag">지식 번역</span>
+          <span class="jd-tag">Knowledge Base</span>
+        </div>
+        <div class="jd-body">
+          <div class="my-label">— 나의 경험</div>
+          <h4>처음 접한 도메인도 직접 학습해 운영 기준으로 바꿔왔습니다</h4>
+          <p>택배 표준약관과 물류 계약서는 <strong>Claude로 쟁점을 정리하고, NotebookLM으로 원문을 교차 확인</strong>해 책임 기준과 정산 근거를 정리했습니다.</p>
+          <p>CS 판단 기준이 없던 환경에서 처리 기준과 에스컬레이션 구조를 직접 설계하고, 유관 리더와 협의해 팀 공통 기준으로 정리했습니다.</p>
+          <p><strong>HR·노무 도메인도 같은 방식으로 접근하겠습니다.</strong> 먼저 기준을 이해하고, 고객이 이해할 수 있는 언어로 번역하겠습니다.</p>
         </div>
       </div>
 
-      <div class="jd-item fi">
-        <div class="jd-left">
-          <div class="jd-num">플렉스의 CX 04</div>
-          <div class="jd-req">AI를 CX 운영에 붙여 실행하는 사람 — 스스로 문제를 정의하고, 빠른 피드백 루프로 기준을 높임</div>
-          <div class="jd-keyword-row">
-            <span class="jd-kw">자기 주도성</span>
-            <span class="jd-kw">AI 활용</span>
-            <span class="jd-kw">스타트업 마인드셋</span>
-          </div>
+      <div class="jd-card">
+        <div class="jd-card-head">
+          <span class="jd-no">플렉스의 CX 04</span>
+          <h3>AI를 CX 운영에 붙여 실행하는 사람 — 스스로 문제를 정의하고, 빠른 피드백 루프로 기준을 높임</h3>
         </div>
-        <div class="jd-right">
-          <div class="jd-match-label">나의 경험</div>
-          <div class="jd-match-title">아무도 시키지 않은 문제를 먼저 발견하고, AI와 자동화로 운영 구조를 만들었습니다</div>
-          <div class="jd-match-points">
-            <div class="jd-match-point">Chrome Extension으로 반복 입력을 자동화해 CS 처리 동선을 8단계에서 2단계로 줄였습니다.</div>
-            <div class="jd-match-point">회사 기본 제공 환경 외 Claude·GPT 추가 도입 필요성을 직접 제안해, 비개발 직군 중 유일하게 AI 업무비를 공식 승인받았습니다.</div>
-            <div class="jd-match-point">AI 기반 자금집행 리포트와 CS 입력 구조 개선처럼, 반복되는 운영 공백을 발견하면 직접 구조화하고 실행했습니다.</div>
-          </div>
+        <div class="jd-tags">
+          <span class="jd-tag">자기 주도성</span>
+          <span class="jd-tag">AI 활용</span>
+          <span class="jd-tag">스타트업 마인드셋</span>
+        </div>
+        <div class="jd-body">
+          <div class="my-label">— 나의 경험</div>
+          <h4>아무도 시키지 않은 문제를 먼저 발견하고, AI와 자동화로 운영 구조를 만들었습니다</h4>
+          <p>Chrome Extension으로 반복 입력을 자동화해 CS 처리 동선을 <strong>7단계에서 1단계로</strong> 줄였습니다.</p>
+          <p>회사 기본 제공 환경 외 Claude·GPT 추가 도입 필요성을 직접 제안해, <strong>비개발 직군에서도 AI 업무비를 공식 승인</strong>받았습니다.</p>
+          <p>Slack 슬래시 커맨드 조회 인터페이스(/담당자), AI 기반 자금집행 리포트, CS 입력 구조 개선처럼 <strong>반복되는 운영 공백을 발견하면 직접 구조화하고 실행</strong>했습니다.</p>
         </div>
       </div>
 
@@ -527,271 +1144,129 @@
   </div>
 </section>
 
-<div class="wrap"><div class="hr"></div></div>
-
-<!-- ══ SKILLS ══ -->
-<section class="sec">
-  <div class="wrap">
-    <p class="sec-eyebrow">Skills &amp; Tools</p>
-    <h2 class="sec-title">역량 및 도구</h2>
-    <div class="skills-grid">
-      <div class="sk-group fi">
-        <div class="sk-title">CX · Customer Success</div>
-        <div class="sk-list">
-          <div class="sk-item">B2B 파트너·고객 운영 기준 설계</div>
-          <div class="sk-item">VOC 전수 분류 · 구조적 원인 규명</div>
-          <div class="sk-item">Product Feedback 전환 · 개발팀 협업</div>
-          <div class="sk-item">에스컬레이션 이슈 구조화 · 대응</div>
-          <div class="sk-item">CS 운영 기준 · SLA 기준 설계</div>
-          <div class="sk-item">Knowledge Base 구축 · 문서화</div>
-        </div>
+<!-- SKILLS -->
+<section>
+  <div class="container">
+    <div class="eyebrow">Skills & Tools</div>
+    <h2 class="section-title">역량 및 도구</h2>
+    <div class="skills">
+      <div class="skills-cell">
+        <h3>CX · Customer Success</h3>
+        <ul>
+          <li>B2B 파트너·고객 운영 기준 설계</li>
+          <li>VOC 반복 패턴 분석 · 구조적 원인 규명</li>
+          <li>Product Feedback 전환 · 개발팀 협업</li>
+          <li>에스컬레이션 이슈 구조화 · 대응</li>
+          <li>CS 운영 기준 · SLA 기준 설계</li>
+          <li>Knowledge Base 구축 · 문서화</li>
+        </ul>
       </div>
-      <div class="sk-group fi">
-        <div class="sk-title">AI · 자동화</div>
-        <div class="sk-list">
-          <div class="sk-item">Claude · ChatGPT · Gemini · NotebookLM</div>
-          <div class="sk-item">Chrome Extension (Claude 활용 직접 구현)</div>
-          <div class="sk-item">Apps Script · VBA (업무 자동화)</div>
-          <div class="sk-item">Zapier (워크플로우 자동화)</div>
-          <div class="sk-item">AI 도입 전략 수립 · 조직 제안·승인</div>
-          <div class="sk-item">Claude + NotebookLM 교차 검증 (법률·계약 문서)</div>
-        </div>
+      <div class="skills-cell">
+        <h3>AI · 자동화</h3>
+        <ul>
+          <li>Claude · ChatGPT · Gemini · NotebookLM</li>
+          <li>Chrome Extension (Claude 활용 직접 구현)</li>
+          <li>Apps Script · VBA (업무 자동화)</li>
+          <li>Slack API 슬래시 커맨드 조회 인터페이스 구축</li>
+          <li>Zapier (워크플로우 자동화)</li>
+          <li>AI 도구 도입 제안 · 업무비 승인</li>
+          <li>Claude + NotebookLM 교차 검증 (법률·계약 문서)</li>
+        </ul>
       </div>
-      <div class="sk-group fi">
-        <div class="sk-title">데이터 · 협업 도구</div>
-        <div class="sk-list">
-          <div class="sk-item">Excel 고급 (운영 지표 설계·집계)</div>
-          <div class="sk-item">Google Sheets · 데이터 정합성 관리</div>
-          <div class="sk-item">Notion (운영 기준·케이스 문서화)</div>
-          <div class="sk-item">Slack (자동화 연동 포함)</div>
-          <div class="sk-item">복잡한 기준 문서의 원문 확인 및 운영 언어화</div>
-        </div>
+      <div class="skills-cell">
+        <h3>데이터 · 협업 도구</h3>
+        <ul>
+          <li>Excel 고급 (운영 지표 설계·집계)</li>
+          <li>Google Sheets · 데이터 정합성 관리</li>
+          <li>Notion (운영 기준·케이스 문서화)</li>
+          <li>Slack (자동화 연동 포함)</li>
+          <li>복잡한 기준 문서의 원문 확인 및 운영 언어화</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ MODALS ══ -->
-
-<!-- Modal 1: VOC → UX 설계 -->
-<div class="modal-overlay" id="modal1">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal-head">
-      <div>
-        <div class="modal-tags">
-          <span class="c-tag accent">VOC → UX 설계 · CTO 제안</span>
-          <span class="c-tag">MVP 직접 설계</span>
-          <span class="c-tag">사내 표준으로 전파</span>
-        </div>
-        <div class="modal-title">배송 제약 VOC를 Fail-soft UX로 전환 — CTO 제안·당일 구현·반복 문의 0건</div>
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="eyebrow">Contact</div>
+    <h2>30분, 커피챗으로<br>먼저 만나뵙고 싶습니다.</h2>
+    <p class="sub">제안서에 적어주신 것처럼, 가벼운 대화부터 시작하면 좋겠습니다. 편하신 시간·장소로 찾아뵙겠습니다.</p>
+    <div class="contact-info">
+      <div class="contact-info-row">
+        <span class="label">Name</span>
+        <span>오희은 / Heeeun Oh</span>
       </div>
-      <button class="modal-close" aria-label="닫기">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section">
-        <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">배송 가능일이 다른 상품이 장바구니에 함께 담기면 주문이 차단됐지만, 고객에게는 그 이유가 충분히 안내되지 않았습니다. 고객은 이를 품절이나 시스템 오류로 인식했고, 동일한 문의가 일 6~10건 반복됐습니다.<br><br><strong>핵심 문제는 고객의 이해 부족이 아니라, 주문이 막히는 시점에 시스템이 이유를 설명하지 못하는 UX 구조에 있었습니다.</strong></div>
+      <div class="contact-info-row">
+        <span class="label">Email</span>
+        <a href="mailto:gldms1009@naver.com">gldms1009@naver.com</a>
       </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 A — Fail-soft UX 설계</div>
-        <div class="modal-section-text">모든 예외 조건을 시스템에서 완벽히 분기하기는 어려웠기 때문에, API 응답값으로 판단 가능한 조건만 남겨 최소 실행 단위의 개선안을 설계했습니다.<br><br><strong>고객이 주문 불가 이유를 이해하고 흐름을 이어갈 수 있도록</strong> 장바구니 내 subtext 안내 구조를 직접 기획했고, 데이터 자료와 함께 CTO에게 제안했습니다. 제안은 즉시 수용되어 당일 구현됐습니다.</div>
+      <div class="contact-info-row">
+        <span class="label">Phone</span>
+        <a href="tel:01023572674">010-2357-2674</a>
       </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 B — 운영 기준 확산</div>
-        <div class="modal-section-text">해당 subtext 구조는 이후 유사한 안내 케이스에도 적용 가능한 기준으로 확장됐습니다. 단순 문구 추가가 아니라, <strong>고객이 막히는 시점에 필요한 정보를 제공하는 사내 UX 개선 기준으로 전파</strong>됐습니다.</div>
-      </div>
-      <div class="modal-result">
-        <div class="modal-result-num">일 6~10건 → 0건</div>
-        <div class="modal-result-desc">반복 문의 해소 · CTO 직접 제안 · 당일 구현 · 사내 표준 확산</div>
+      <div class="contact-info-row">
+        <span class="label">GitHub</span>
+        <a href="https://github.com/collette1009" target="_blank" rel="noopener">github.com/collette1009</a>
       </div>
     </div>
+    <a href="mailto:gldms1009@naver.com" class="contact-btn">이메일 보내기 →</a>
   </div>
-</div>
+</section>
 
-<!-- Modal 2: B2B 파트너 운영 -->
-<div class="modal-overlay" id="modal2">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal-head">
-      <div>
-        <div class="modal-tags">
-          <span class="c-tag accent">고객 직접 응대</span>
-          <span class="c-tag">B2B 고객 성공</span>
-          <span class="c-tag">Knowledge Base</span>
-        </div>
-        <div class="modal-title">고객 직접 응대(예약·변경·취소) · 400여 개 제휴사 운영 기준 재정비 · Knowledge Base 구축</div>
-      </div>
-      <button class="modal-close" aria-label="닫기">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section">
-        <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">골프장 400여 곳의 취소 정책·위약금 기준·동반자 변경 규정이 제각각이었습니다. 파트너사 어드민에는 데이터가 있었지만, 상담자가 바로 판단할 수 있는 기준으로 정리되어 있지 않아 동일 유형 문의에도 팀원마다 안내가 달라지는 상황이 발생했습니다. <strong>오안내와 재문의가 반복되며 상담 품질 편차도 함께 커졌습니다.</strong></div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행</div>
-        <div class="modal-section-text">400여 개 제휴 골프장의 정책을 중요도순으로 재구조화하고, 예약·취소·위약·동반자 변경 기준을 유형별로 분류했습니다. 반복 문의가 발생하는 구간을 VOC 기준으로 다시 정리하고, <strong>상담자가 동일 기준으로 판단할 수 있도록</strong> 운영 가이드와 Knowledge Base를 재정비했습니다.<br><br>정책 변경이 발생할 때는 어드민 기준이 최신 상태로 반영되도록 내부 공유 흐름을 정리했고, 신규 인력이 빠르게 기준을 익힐 수 있도록 온보딩 자료에도 반영했습니다.</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">결과</div>
-        <div class="modal-section-text">동일 유형 문의에 대한 상담 기준이 통일되었고, 정책 해석 차이로 인한 오안내와 재문의 가능성을 줄였습니다. 제휴사별 정책이 개인 숙련도에 의존하지 않고 <strong>팀 전체가 참고할 수 있는 기준으로 남게 되었으며</strong>, 신규 인력 온보딩 시간과 상담 품질 편차를 줄이는 데 기여했습니다.</div>
-      </div>
-      <div class="modal-result">
-        <div class="modal-result-num">400+ 제휴사</div>
-        <div class="modal-result-desc">운영 기준 표준화 · 상담 판단 기준 체계화 · 온보딩 기준 정비</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 3: 계약 분석 -->
-<div class="modal-overlay" id="modal3">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal-head">
-      <div>
-        <div class="modal-tags">
-          <span class="c-tag accent">계약 분석 · AI 이중 검증</span>
-          <span class="c-tag">CEO 승인 · 전사 정산 기준 확정</span>
-          <span class="c-tag">배상회수율 14.7배</span>
-        </div>
-        <div class="modal-title">계약·약관 원문 교차 확인으로 배상 구조 재정의 — 회수율 14.7배 개선</div>
-      </div>
-      <button class="modal-close" aria-label="닫기">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section">
-        <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">외부 파트너 귀책으로 발생한 배송 사고와 물류 손실이 있었지만, 배상은 파트너사 관행에 따라 제한적으로 처리되고 있었습니다. 사고는 반복되는데 책임 기준과 비용 반영 구조가 명확하지 않아, 월 배상 회수액은 50만 원 수준에 머물러 있었습니다.</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 A — 택배 표준약관 검토</div>
-        <div class="modal-section-text">택배 표준약관을 기준으로 파손·분실·배송 사고 시 청구 가능한 조건을 정리했습니다. Claude로 쟁점을 먼저 구조화하고, NotebookLM으로 원문 근거를 교차 확인해 사진·접수 기록 등 최소 증빙이 있을 경우 파트너에게 청구 가능한 기준을 세웠습니다. 기존 관행 중심의 처리 방식을 근거 기반 협상 구조로 전환했습니다.</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 B — 물류 계약서 선공제 조항 확인</div>
-        <div class="modal-section-text">물류 계약서를 다시 검토하는 과정에서 직접 차감 가능한 선공제 조항을 확인했습니다. 해당 조항을 근거로 피해 유형, 비용 항목, 정산 기준을 재정리했고, CEO에게 보고해 전사 기준으로 확정했습니다.</div>
-      </div>
-      <div class="modal-result">
-        <div class="modal-result-num">배상회수율 14.7배</div>
-        <div class="modal-result-desc">월 50만 원 → 700만 원 · 월 1,900만 원 선공제 구조 확보<br>AI로 쟁점을 정리하고 원문으로 근거를 확인해, 처음 접한 도메인을 협상 가능한 운영 기준으로 전환했습니다.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 4: 선제 발견 · C레벨 제안 -->
-<div class="modal-overlay" id="modal4">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="modal-head">
-      <div>
-        <div class="modal-tags">
-          <span class="c-tag accent">AI 기반 CX 자동화</span>
-          <span class="c-tag">Chrome Extension 직접 구현</span>
-          <span class="c-tag">기준값 오류 감소</span>
-          <span class="c-tag">비개발 직군 유일 승인</span>
-        </div>
-        <div class="modal-title">생성형 AI와 Chrome Extension으로 CS 반복 업무 자동화 — 8단계→2단계 축소</div>
-      </div>
-      <button class="modal-close" aria-label="닫기">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section">
-        <div class="modal-section-label">문제 상황</div>
-        <div class="modal-section-text">대량 취소·반품·재배송 처리 과정에서 동일한 항목을 반복 입력해야 했습니다. 처리 건수가 늘어날수록 입력 피로도와 기준값 오류 가능성이 커졌고, 특히 귀책대상처럼 후속 정산과 연결되는 값은 한 번 잘못 입력되면 원인 분석과 비용 집계까지 왜곡될 수 있었습니다.</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 A — 반복 입력 자동화</div>
-        <div class="modal-section-text">반복적으로 입력되는 필수값과 기준값을 먼저 분리했습니다. 이후 Chrome Extension을 직접 구현해 재배송·반품 등록 시 주요 항목이 단축키 한 번으로 자동 입력되도록 만들었습니다. 이를 통해 기존 8단계에 가까웠던 수동 입력 흐름을 2단계로 줄였습니다.</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 B — 리스크 구간은 사람에게 남김</div>
-        <div class="modal-section-text">모든 단계를 자동화하지는 않았습니다. 귀책 판단, 예외 케이스 확인, 최종 등록처럼 비용·정산·고객 안내에 영향을 주는 구간은 담당자가 직접 확인하도록 남겼습니다. 자동화의 목적을 속도 향상이 아니라 반복 오류를 줄이고 기준값을 표준화하는 데 두었습니다.</div>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">실행 C — AI 업무 도구화</div>
-        <div class="modal-section-text">Claude를 로직 설계·수정·디버깅 보조에 활용했고, NotebookLM과 GPT는 VOC 분류, 계약·약관 원문 교차 확인, 운영 기준 정리에 사용했습니다. 단순히 AI 답변을 쓰는 것이 아니라, 운영 기준을 더 빠르고 정확하게 만드는 실무 파트너로 활용했습니다. 이 활용성을 인정받아 비개발 직군 중 유일하게 AI 업무비를 공식 승인받았습니다. 이 외에도 AI 기반 자금집행 리포트 자동화 구조를 선제 구축해 반복 보고 업무를 경영진 의사결정 참고 자료로 전환했습니다.</div>
-      </div>
-      <div class="modal-result">
-        <div class="modal-result-num">8→2단계</div>
-        <div class="modal-result-desc">1,151건 단독 처리 · 반복 입력 시간 단축 · 기준값 오류 감소 · AI 업무비 공식 승인</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ FOOTER / CONTACT ══ -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-name">오희은</div>
-        <div class="footer-sub">플렉스(flex) · Customer Experience Manager 지원</div>
-        <div class="footer-sub" style="margin-top:4px;">gldms1009@naver.com &nbsp;·&nbsp; 010-2357-2674</div>
-      </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="mailto:gldms1009@naver.com" class="btn btn-dark">이메일 보내기</a>
-      </div>
-    </div>
+<footer>
+  <div class="container">
+    <span>© 2026 오희은 · Heeeun Oh</span>
+    <span>플렉스(flex) Customer Experience Manager 지원</span>
   </div>
 </footer>
 
 <script>
-  const hd = document.getElementById('hd');
-  window.addEventListener('scroll', () => { hd.classList.toggle('on', window.scrollY > 8); }, { passive: true });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-  }, { threshold: 0, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.fi').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) { el.classList.add('show'); }
-    else { io.observe(el); }
-  });
-  const navToggle = document.getElementById('navToggle');
-  const navEl = document.getElementById('nav');
-  navToggle.addEventListener('click', () => { navToggle.classList.toggle('open'); navEl.classList.toggle('open'); });
-  // Modal
-  const overlays = document.querySelectorAll('.modal-overlay');
-  function openModal(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    el.querySelector('.modal-close').focus();
-  }
-  function closeModal(el) {
-    el.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.querySelectorAll('[data-modal]').forEach(trigger => {
-    trigger.addEventListener('click', () => openModal(trigger.dataset.modal));
-  });
-  overlays.forEach(overlay => {
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(overlay); });
-    overlay.querySelector('.modal-close').addEventListener('click', () => closeModal(overlay));
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') overlays.forEach(o => { if (o.classList.contains('open')) closeModal(o); });
-  });
+  // ===== 모달 시스템 (무신사 방식) =====
+  const backdrop = document.getElementById('modalBackdrop');
+  const allDetails = document.querySelectorAll('.case-detail');
 
-  document.querySelectorAll('nav a, .btn[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const href = a.getAttribute('href');
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        navToggle.classList.remove('open');
-        navEl.classList.remove('open');
-      }
+  function openModal(id) {
+    allDetails.forEach(d => d.classList.remove('active'));
+    const detail = document.getElementById(id);
+    if (!detail) return;
+    detail.classList.add('active');
+    backdrop.classList.add('open');
+    document.body.classList.add('modal-open');
+    backdrop.scrollTop = 0;
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    setTimeout(() => allDetails.forEach(d => d.classList.remove('active')), 200);
+  }
+
+  // 카드 클릭 → 모달 열기
+  document.querySelectorAll('.case-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = card.getAttribute('data-modal');
+      if (id) openModal(id);
     });
   });
+
+  // 닫기 버튼
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', closeModal);
+  });
+
+  // 오버레이(배경) 클릭 시 닫기
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+
+  // ESC 키로 닫기
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('open')) closeModal();
+  });
 </script>
+
 </body>
 </html>
